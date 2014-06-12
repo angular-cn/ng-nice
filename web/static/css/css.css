@@ -5898,6 +5898,7 @@ a:hover {
 }
 .markdown {
   font-size: 16px;
+  word-break: break-word;
 }
 .markdown table {
   width: 100%;
@@ -5951,6 +5952,9 @@ a:hover {
 .markdown pre {
   background-color: #F0F0F0 !important;
   background: #F0F0F0 !important;
+}
+.markdown code {
+  white-space: pre-line;
 }
 .btn {
   min-width: 80px;
@@ -6148,6 +6152,11 @@ body {
   height: auto;
   padding: 60px 20px 0 20px;
 }
+@media (max-width: 768px) {
+  #wrap .main {
+    padding: 50px 5px 0 5px;
+  }
+}
 #inner-wrap {
   min-height: 100%;
   height: 100%;
@@ -6206,6 +6215,8 @@ body {
     position: inherit;
     margin-top: 10px;
     min-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*!
@@ -7613,6 +7624,11 @@ body {
 .center-panel .post-list-panel {
   padding-right: 20px;
 }
+@media (max-width: 768px) {
+  .center-panel .post-list-panel {
+    padding-right: 0px;
+  }
+}
 .center-panel .post-list-panel .avatar {
   position: absolute;
 }
@@ -7637,6 +7653,11 @@ body {
 }
 .post-detail .detail-content {
   padding: 10px;
+}
+@media (max-width: 768px) {
+  .post-detail .detail-content {
+    padding: 5px;
+  }
 }
 .nice-form .alert {
   margin-bottom: 0px;

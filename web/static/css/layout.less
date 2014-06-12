@@ -23,11 +23,9 @@ html, body {
     min-height : 100%;
     height     : auto;
     padding    : 60px 20px 0 20px;
-    //    #floater	{
-    //      float:left;
-    //      height:50%;
-    //      margin-bottom:-2*@footer_height;
-    //    }
+    @media (max-width : @screen-sm-min) {
+      padding    : 50px 5px 0 5px;
+    }
   }
 
 }
@@ -94,6 +92,8 @@ html, body {
       position   : inherit;
       margin-top : 10px;
       min-height : 30px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
   }

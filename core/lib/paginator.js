@@ -170,7 +170,7 @@
 
         if (result.pageCount < 2) {
             html += '</ul>';
-            return html;
+            return "";
         }
 
         prelink = this.preparePreLink(result.prelink);
@@ -221,6 +221,10 @@
 //        }
 
         html += '</ul>';
+
+        if(html == '<ul class="pagination"></ul>'){
+            return "";
+        }
         return html;
     };
     var ItemPaginator = function (options) {
