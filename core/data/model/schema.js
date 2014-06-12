@@ -1,0 +1,1 @@
+var mongoose = require('mongoose'),    Schema = mongoose.Schema;schemas = {    Post : require("./postSchema"),    User : require("./userSchema"),    Apply: require("./applySchema")};module.exports = schemas;

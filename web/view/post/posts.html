@@ -1,0 +1,60 @@
+<div class="row inner-content" ng-controller="post_list_ctrl">
+    <div class="col-md-4 left-panel">
+        <div class="post-list-panel">
+            <div class="header">
+                <span class="title">文章列表</span>
+                <span class="total"> {{posts_total}}</span>
+                <a href="/post/add" title="添加文章" class="action pull-right">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+            </div>
+            <ul class="post-list" data-height="115">
+                <li class="post-item" ng-click="js_select_post(post)"
+                    ng-class="{true:'active',false:''}[selected_post.id == post.id]" ng-repeat="post in posts">
+                    <h3>{{post.title}}</h3>
+                    <!--<span> - [{{post.category | categoryName}}]</span>-->
+                    <div class="post-info">
+
+                        <span class="status-draft" ng-if="!!!post.published">草稿</span>
+                        <span class="publish" ng-if="!!post.published">发布于 {{post.create_date | fullDate}}</span>
+                        <!--<span class="comment"><i class="fa fa-comments-o"></i> 评论(12)</span>-->
+                        <span class="comment">浏览({{post.hits}})</span>
+                    </div>
+                </li>
+                <div class="mar-top-10 text-center" ng-show="has_more">
+                    <button class="btn btn-default" ng-click="js_loading_more()" data-loading-text="正在加载中..." loading-status="loading_posts">加载更多...</button>
+                </div>
+                <div class="empty-panel" ng-if="posts.length == 0">您没有发布任何文章</div>
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="right-content">
+            <div class="tool-bar">
+                <a ng-if="selected_post" href="/posts/{{selected_post.id}}/edit" class="pull-left mar-right-20">
+                    <i class="fa fa-pencil"></i>
+                </a>
+
+                <div  ng-if="selected_post" class="btn-group">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-gear"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-show="!!!selected_post.published">
+                            <a href="javascript:;" ng-click="js_publish_post(selected_post)"><i class="fa fa-xxx"></i>发布</a>
+                        </li>
+                        <li ng-show="!!selected_post.published">
+                            <a href="javascript:;" ng-click="js_unpublish_post(selected_post)"><i class="fa fa-xxx"></i>取消发布</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:;" ng-click="js_delete_post(selected_post)"><i class="fa fa-trash-o"></i> 删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="markdown preview-content" data-height="115" nice-markdown="selected_post.content"></div>
+        </div>
+    </div>
+</div>

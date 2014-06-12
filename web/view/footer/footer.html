@@ -1,0 +1,21 @@
+<div id="footer">
+    <div class="container">
+        <p class="links">
+            <a href="/donate">捐赠</a> | <a href="/about">关于我们</a><br>
+        </p>
+        <p class="text-muted">
+
+            京ICP备14019130号，版权所有 © 2014-2015 NgNice -
+            v<%=app.version%>
+            <% if(app.env == "production") {
+            %>
+            <script type="text/javascript">
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cspan id='cnzz_stat_icon_1000407174'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000407174%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+            <%
+            }%>
+
+        </p>
+    </div>
+</div>

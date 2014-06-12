@@ -1,0 +1,17 @@
+{
+    "name": "angular-file-upload",
+    "version": "0.5.7",
+    "main": "angular-file-upload.js",
+    "homepage": "https://github.com/nervgh/angular-file-upload",
+    "ignore": ["examples"],
+    "dependencies": {
+        "angular": "~1.2.11",
+        "es5-shim": "~2.1.0"
+    },
+    "keywords": [
+        "angular",
+        "file",
+        "upload",
+        "module"
+    ]
+}

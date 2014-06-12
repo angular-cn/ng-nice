@@ -1,0 +1,62 @@
+<div class="center-right-panel">
+    <div class="center-panel">
+        <article class="post-detail">
+            <div class="detail-header">
+                <h3><a href="/posts/<%-post.id%>"><%-post.title%></a></h3>
+                <div class="post-info">
+                    <span class="publish">发布于 <%-post.publish_date%></span>
+                    <!--<a href="/posts/<%=post.id%>#comment" class="comment"><i class="fa fa-comments-o"></i> 评论(12)</a>-->
+                    <span class="comment">浏览(<%-post.hits%>)</span>
+                </div>
+            </div>
+            <div class="markdown detail-content">
+                <%-post.content%>
+            </div>
+            <div id="uyan_frame"></div>
+        </article>
+    </div>
+    <div class="right-panel">
+        <div class="mar-bottom-10">
+            <a href="javascript:;" class="avatar avatar-40" title="">
+                <img src="<%=post.author.avatar.path%>" alt="" class="img-circle">
+                <span class="avatar-text"><%=post.author.display_name%></span>
+            </a>
+            <p class="user-desc"><%=post.author.desc || "作者暂时没有描述"%></p>
+        </div>
+        <!--<div class="box-panel">-->
+            <!--<div class="box-header">-->
+                <!--<h4>作者</h4>-->
+            <!--</div>-->
+            <!--<div class="box-body">-->
+              <!---->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="box-panel">
+            <div class="box-header">
+                <h4>作者其他文章</h4>
+            </div>
+            <div class="box-body">
+                <%if(other_posts && other_posts.length > 0){
+                %>
+                <ul class="post-list">
+                    <%if(other_posts && other_posts.length > 0){
+                    for(var i = 0;i < other_posts.length;i++)
+                    {
+                    %>
+                    <li><a href="/posts/<%-other_posts[i].id%>"><%-other_posts[i].title%></a></li>
+                    <%
+                    }
+                    }%>
+                </ul>
+                <%
+                }else{
+                %>
+                <div class="empty-panel pad-top-10">作者暂无其他文章。</div>
+                <%
+                }%>
+            </div>
+        </div>
+    </div>
+</div>
+
+

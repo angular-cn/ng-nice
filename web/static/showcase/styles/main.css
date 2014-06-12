@@ -1,0 +1,88 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  padding-bottom: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.main-content {
+  padding: 15px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+ul.nav-level-2.nav>li>a {
+  padding: 6px 9px;
+}
+
+.nav h4 {
+  cursor: default;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+input[type=checkbox], input[type=radio] {
+  width: 16px;
+  height: 16px;
+}
+
+.hljs-tag, .hljs-pi {
+  background: none;
+}
+
+table.table thead th {
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.layout-table {
+  width: 100%;
+  table-layout: fixed;
+}
+.layout-table th {
+  width: 4em;
+  padding: 6px 0;
+}
+.layout-table td .progress {
+  margin-bottom: 0;
+}
+
+.tab-content{
+    margin-top: 5px;
+}
+
+textarea .ng-dirty.ng-invalid,
+select .ng-dirty.ng-invalid,
+input.ng-dirty.ng-invalid
+{
+    border-color       : #e9322d;
+    -webkit-box-shadow : 0 0 6px #f8b9b7;
+    -moz-box-shadow    : 0 0 6px #f8b9b7;
+    box-shadow         : 0 0 6px #f8b9b7;
+}

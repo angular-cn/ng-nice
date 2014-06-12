@@ -1,0 +1,74 @@
+<div class="center-right-panel" ng-controller="home_ctrl">
+    <div class="center-panel">
+        <div class="post-list-panel">
+            <div class="panel-header">
+                <h4>最新文章</h4>
+            </div>
+            <ul class="post-list">
+                <%
+                if(posts && posts.length > 0){
+                for(var i = 0;i < posts.length;i++)
+                {
+                var post = posts[i];
+                %>
+                <li class="post-item">
+                    <div class="clearfix">
+                        <a href="javascript:;" class="avatar pull-left" title="<%-post.author.display_name%>">
+                            <img src="<%-post.author.avatar.path%>" alt="<%-post.author.display_name%>"
+                                 class="img-circle">
+                        </a>
+
+                        <div class="pull-left pad-left-40">
+                            <h3><a href="/posts/<%=post.id%>"><%=post.title%></a></h3>
+                            <a href="/posts/<%=post.id%>" class="summary"><%=post.summary%></a>
+
+                            <div class="post-info">
+                                <span class="publish">发布于 <%-post.publish_date%></span>
+                                <!--<a href="/posts/<%=post.id%>#comment" class="comment"><i class="fa fa-comments-o"></i> 评论(12)</a>-->
+                                <span class="comment">浏览(<%-post.hits%>)</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+                <%
+                }
+                }%>
+
+            </ul>
+            <%-locals.pager%>
+        </div>
+        <%
+        if(!posts || posts.length == 0){
+        %>
+        <div class="empty-panel">没有发布任何文章</div>
+        <%
+        }
+        %>
+
+    </div>
+    <div class="right-panel">
+        <div class="input-group mar-bottom-20 mar-top-20">
+            <input class="form-control" nice-enter="js_search(input_keywords)" placeholder="输入关键字搜索"
+                   ng-model="input_keywords"/>
+            <span class="input-group-btn">
+                <button class="btn btn-success" ng-click="js_search(input_keywords)" type="button">搜索</button>
+            </span>
+        </div>
+
+        <div class="box-panel">
+            <div class="box-header">
+                <h4>公告</h4>
+            </div>
+            <div class="box-body">
+                NgNice：AngularJS学习和经验分享平台。<br>
+                v1.0.0版本于2014年5月10日正式发布。<br>
+                域名 <a href="http://ngnice.com">ngnice.com</a> 备案成功！
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

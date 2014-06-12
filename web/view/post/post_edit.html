@@ -1,0 +1,46 @@
+<div class="inner-content post-edit-panel" ng-controller="post_edit_ctrl">
+    <form class="form-horizontal" role="form" novalidate
+          w5c-form-validate="" name="form_post_add">
+
+        <div class="row">
+            <div class="col-md-6 left-row">
+                <input autofocus="" type="text" required="" name="post_title" ng-model="post.title" class="form-control"
+                       placeholder="标题">
+                <textarea autofocus="" rows="2" name="post_summary" ng-model="post.summary"
+                          class="form-control"
+                          placeholder="概要（可选项）"></textarea>
+                <!--<div contenteditable="true" type="text" class="editor" ng-model="post.content" data-height="170"></div>-->
+                <textarea data-height="217" rows="20" required="" name="post_content" ng-model="post.content"
+                          class="form-control"
+                          placeholder="文章内容"></textarea>
+
+            </div>
+            <div class="col-md-6">
+                <div class="markdown preview-content" nice-markdown="post.content" data-height="120"></div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="publish-bar">
+                <!--<div class="navbar-form pull-left">-->
+                    <!--<label><i class="fa fa-tags"></i></label>-->
+                    <!--<input type="text" name="post_tag" ng-model="post.tags" class="form-control"-->
+                           <!--placeholder="标签（以逗号分开）">-->
+                <!--</div>-->
+                <div class="navbar-form pull-left">
+                    <label>文章类别：</label>
+                    <select class="form-control" name="post_category" ng-model="post.category" ng-options="c.value as c.name for c in categories"></select>
+                </div>
+                <div class="navbar-form navbar-right" ng-if="global.loading_done && !!!post.published">
+                    <button type="button" w5c-form-submit="js_save_as_draft(post)" class="btn btn-primary mar-right-15">保存为草稿</button>
+                    <button type="button" w5c-form-submit="js_save_as_publish(post)" class="btn btn-success">发 布</button>
+                </div>
+                <div class="navbar-form navbar-right" ng-if="global.loading_done && !!post.published">
+                    <button type="button" w5c-form-submit="js_save(post)" class="btn btn-primary mar-right-15">更 新</button>
+                    <button type="button" w5c-form-submit="js_save_as_draft(post)" class="btn btn-default">取消发布</button>
+                </div>
+            </div>
+
+        </nav>
+    </form>
+</div>
