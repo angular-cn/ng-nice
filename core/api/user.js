@@ -26,7 +26,7 @@
                 return res.send({code: status.user_error.invalid_name_or_password});
             }
             res.clearCookie(config.session_key, { path: '/' });
-            res.cookie(config.session_key, {id: user.id, name: name, role: user.role}, {
+            res.cookie(config.session_key, user.id, {
                 expires : expires,
                 httpOnly: true,
                 path    : '/',
