@@ -7,6 +7,7 @@
         methodOverride = require('method-override'),
         cookieParser = require('cookie-parser'),
         express_layout = require('express3-ejs-layout'),
+        compression = require('compression'),
         http = require('http'),
         path = require('path'),
         app = express(),
@@ -19,7 +20,7 @@
             version: app_package.version,
             env: config.env
         };
-
+    app.use(compression());
     app.use(bodyParser());
     app.use(methodOverride());
     app.use(cookieParser(config.cookie_secret));
@@ -30,6 +31,7 @@
     app.use(express_layout);
     app.set('layout', 'layout');
     app.disable("x-powered-by");
+
     morgan.token('data', function (req) {
         return "params:" + JSON.stringify(req.params) + ",query:" + JSON.stringify(req.query) + ",body:" + JSON.stringify(req.body);
     });

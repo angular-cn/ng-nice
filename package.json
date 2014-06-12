@@ -22,7 +22,8 @@
     "markdown": "~0.5.0",
     "marked": "~0.3.2",
     "moment": "~2.6.0",
-    "formidable": "~1.0.14"
+    "formidable": "~1.0.14",
+    "compression": "~1.0.7"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
