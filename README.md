@@ -93,14 +93,6 @@ NgNice站点目前提供的功能如下：
     |   |   -- w5cValidator
     |   |       |-- 1.0.0
     |   |       -- 2.0.0
-    |   -- sample
-    |       |-- app
-    |       |   -- contacts
-    |       |-- assets
-    |       |-- common
-    |       |   -- utils
-    |       |-- css
-    |       -- vendor
     -- view
         |-- footer
         |-- header
