@@ -1,0 +1,1 @@
+单元测试框架mocha介绍:1. 本地环境安装mocha：执行命令 npm install -g mocha;2. 命令行切换到当前目录，执行 mocha XXX.js 命令执行XXX.js文件的单元测试，mocha * 执行所有文件的单元测试;3. 更多 mocha 的信息，参照 http://visionmedia.github.io/mocha/。
