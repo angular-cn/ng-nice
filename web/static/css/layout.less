@@ -24,7 +24,7 @@ html, body {
     height     : auto;
     padding    : 60px 20px 0 20px;
     @media (max-width : @screen-sm-min) {
-      padding    : 50px 5px 0 5px;
+      padding         : 50px 5px 0 5px;
     }
   }
 
@@ -44,28 +44,33 @@ html, body {
 #footer {
   background : #f5f5f5;
   height     : @footer_height;
-
-  p{
-    text-align: center;
-    line-height: 20px;
+  @media (max-width : @screen-sm-min) {
+    height          : 95px;
   }
-  .links{
-    margin-top: 12px;
+  p {
+    text-align  : center;
+    line-height : 20px;
+  }
+  .links {
+    margin-top : 12px;
   }
   .text-muted {
-    margin-top: 12px;
-    a{
+    margin-top : 12px;
+    a {
       color : #666666;
-      &:hover{
-        color: #242628;
+      &:hover {
+        color : #242628;
       }
     }
-    color : #999999;
+    color      : #999999;
   }
 }
 
 .push {
   height : 30px;
+  @media (max-width : @screen-sm-min) {
+    height          : 0px;
+  }
 }
 
 .center-right-panel {
@@ -88,12 +93,12 @@ html, body {
     }
 
     .right-panel {
-      float      : none;
-      position   : inherit;
-      margin-top : 10px;
-      min-height : 30px;
-      margin-left: auto;
-      margin-right: auto;
+      float        : none;
+      position     : inherit;
+      margin-top   : 10px;
+      min-height   : 30px;
+      margin-left  : auto;
+      margin-right : auto;
     }
 
   }

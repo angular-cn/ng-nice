@@ -1,16 +1,14 @@
 .signin-panel {
   margin-top: 50px;
-//  position: absolute;
-//  left: 50%;
-//  top: 50%;
-//  margin-left: -200px;
-//  margin-top: -100px;
+
   form {
-    width: 400px;
+    width: 350px;
+    @media (max-width : @screen-xs) {
+      width: 90%;
+    }
     margin: auto;
     .form-control{
       height: 44px;
     }
-
   }
 }

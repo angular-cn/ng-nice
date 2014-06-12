@@ -5841,8 +5841,13 @@ button.close {
   margin-top: 50px;
 }
 .signin-panel form {
-  width: 400px;
+  width: 350px;
   margin: auto;
+}
+@media (max-width: 480px) {
+  .signin-panel form {
+    width: 90%;
+  }
 }
 .signin-panel form .form-control {
   height: 44px;
@@ -6171,6 +6176,11 @@ body {
   background: #f5f5f5;
   height: 80px;
 }
+@media (max-width: 768px) {
+  #footer {
+    height: 95px;
+  }
+}
 #footer p {
   text-align: center;
   line-height: 20px;
@@ -6190,6 +6200,11 @@ body {
 }
 .push {
   height: 30px;
+}
+@media (max-width: 768px) {
+  .push {
+    height: 0px;
+  }
 }
 .center-right-panel {
   position: relative;
@@ -7807,6 +7822,9 @@ body {
   font-size: 15px;
   list-style: none;
   line-height: 30px;
+}
+.about {
+  word-break: break-all;
 }
 .about hr {
   margin: 0;
