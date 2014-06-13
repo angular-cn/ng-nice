@@ -36,7 +36,7 @@ NgNice站点目前提供的功能如下：
 |   |-- mailer
 |   -- validation
  -- web
-    |-- res
+    |-- static
     |   |-- css
     |   |-- docs
     |   |   |-- components
@@ -60,6 +60,7 @@ NgNice站点目前提供的功能如下：
     |   |       |-- guide
     |   |       |-- misc
     |   |       |-- tutorial
+    |   |-- showcase
     |   |-- fonts
     |   |   |--font-awesome
     |   |       |-- 4.0.3
