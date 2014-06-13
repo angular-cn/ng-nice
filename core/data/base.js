@@ -4,7 +4,7 @@ var Base = function (model) {
 
     Base.prototype.get_by_id = function (id, callback) {
         this.model.findOne({id: id}, function (err, data) {
-            callback(err, data);
+            return callback(err, data);
         });
     };
 
@@ -12,14 +12,14 @@ var Base = function (model) {
         var query = self.model.find(options);
         query.count(function (err, total) {
             if (err) {
-                callback(err);
+                return callback(err);
             }
             query = self.model.find(options);
             query.sort(sort).skip((page - 1) * size).limit(size).exec(function (err, data) {
                 if (err) {
-                    callback(err);
+                    return callback(err);
                 }
-                callback(null, data, total)
+                return callback(null, data, total)
             });
         });
     };
