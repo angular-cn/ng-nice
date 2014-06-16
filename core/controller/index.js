@@ -1,1 +1,1 @@
-/*global exports,require*/(function () {    "use strict";    module.exports = {        index: require("./indexCtrl"),        user : require("./userCtrl"),        post : require("./postCtrl")    };})();
+/*global exports,require*/(function () {    "use strict";    module.exports = {        home: require("./homeCtrl"),        user : require("./userCtrl"),        post : require("./postCtrl")    };})();
