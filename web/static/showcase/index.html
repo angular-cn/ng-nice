@@ -6,35 +6,29 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html class="no-js" ng-app="ngShowcaseApp"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Angular范例程序</title>
     <meta name="fragment" content="!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css"/>
-    <link rel="stylesheet" href="bower_components/select2/select2.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/default.css" />
+    <link rel="stylesheet" href="bower_components/select2/select2.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <style>
-        #cnzz_stat_icon_1000407174{
-            display: none;
-        }
-    </style>
+    <link rel="Shortcut Icon" href="images/favicon.ico" />
+
 </head>
-<body ng-app="ngShowcaseApp">
+<body>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -48,10 +42,11 @@
             <app-nav></app-nav>
         </div>
         <div class="col-md-5">
-            <div ui-view class="main-content">正在加载，请稍候……</div>
+          <app-brief></app-brief>
+          <div ui-view>正在加载，请稍候……</div>
         </div>
         <div class="col-md-5">
-            <app-view-status></app-view-status>
+          <app-view-status></app-view-status>
             <app-view-source></app-view-source>
         </div>
     </div>
@@ -111,9 +106,11 @@
 <script src="scripts/filters/orderClass.js" charset="utf-8"></script>
 <script src="scripts/filters/size.js" charset="utf-8"></script>
 <script src="scripts/services/TreeData.js" charset="utf-8"></script>
+<script src="scripts/services/DaoBook.js" charset="utf-8"></script>
 
 <script src="lib/angular-locale_zh-cn.js" charset="utf-8"></script>
 <script src="lib/ui-bootstrap-locale_zh-cn.js" charset="utf-8"></script>
+<script src="scripts/config/config.js" charset="utf-8"></script>
 <script src="scripts/config/authors.js" charset="utf-8"></script>
 <script src="scripts/config/nav-data.js" charset="utf-8"></script>
 <script src="scripts/config/city-data.js" charset="utf-8"></script>
@@ -124,11 +121,12 @@
 <script src="scripts/directives/app/nav.js" charset="utf-8"></script>
 <script src="scripts/directives/app/viewSource.js" charset="utf-8"></script>
 <script src="scripts/directives/app/viewStatus.js" charset="utf-8"></script>
+<script src="scripts/directives/app/brief.js" charset="utf-8"></script>
 
 <script src="scripts/controllers/notFound.js" charset="utf-8"></script>
 
 <script src="scripts/controllers/home.js" charset="utf-8"></script>
-<script src="scripts/controllers/home/main.js" charset="utf-8"></script>
+<script src="scripts/controllers/home/home.js" charset="utf-8"></script>
 <script src="scripts/controllers/home/about.js" charset="utf-8"></script>
 <script src="scripts/controllers/home/contact.js" charset="utf-8"></script>
 <script src="scripts/controllers/show.js" charset="utf-8"></script>
@@ -194,8 +192,6 @@
 <script src="scripts/controllers/thirdparty.js"></script>
 <script src="scripts/controllers/thirdparty/baiduueditor.js"></script>
 <script src="scripts/directives/thirdparty/baiduueditor.js"></script>
-
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000407174'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000407174' type='text/javascript'%3E%3C/script%3E"));</script>
 <!-- endbuild -->
 </body>
 </html>
