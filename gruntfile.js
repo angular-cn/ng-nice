@@ -11,7 +11,9 @@ module.exports = function (grunt) {
         pkg   : grunt.file.readJSON('package.json'),
         concat: {
             js: {
-                src : site_scripts,//['res/lib/jquery/1.11.0/jquery.js','res/lib/bootstrap/3.1.1/js/bootstrap.js', 'res/js/main.js'],
+                //['res/lib/jquery/1.11.0/jquery.js','res/lib/bootstrap/3.1.1/js/bootstrap.js', 'res/js/main.js'],
+                // 这里的site_scripts是从配置文件读取的，因为layout也需要读取site_scripts，如果仅仅是这个地方使用到，可以按照上面的方式写死
+                src : site_scripts,
                 dest: 'web/static/js/<%= pkg.name %>.js'
             }
         },
