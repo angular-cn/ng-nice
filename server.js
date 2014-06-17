@@ -16,9 +16,9 @@
         app_package = require("./package.json"),
         core = require("./core/"),
         locals_app = {
-            title: "AngularJS Nice Things",
+            title  : "AngularJS Nice Things",
             version: app_package.version,
-            env: config.env
+            env    : config.env
         };
     app.use(compression());
     app.use(bodyParser());
@@ -41,13 +41,25 @@
     });
     if ('development' === config.env) {
         app.use(morgan(':method :url :status :remote-addr :data [:date][:response-time ms]'));
+        locals_app.site_scripts = config.site_scripts;
     } else {
         app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms]'));
+        //URL 检查并重定向
+        app.use(function (req, res, next) {
+            if (req.headers.host == "angular.duapp.com") {
+                res.writeHead(301, {'Location': 'http://' + config.host + req.url});
+                res.end();
+                return;
+            }
+            if (req.headers.host !== config.host) {
+                return res.redirect('http://' + config.host + req.url);
+            }
+            else {
+                next();
+            }
+        });
     }
-    // development only
-    if ('development' === config.env) {
-        locals_app.site_scripts = config.site_scripts;
-    }
+
     app.locals.app = locals_app;
 
     //初始化路由
