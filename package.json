@@ -23,7 +23,10 @@
     "marked": "~0.3.2",
     "moment": "~2.6.0",
     "formidable": "~1.0.14",
-    "compression": "~1.0.7"
+    "compression": "~1.0.7",
+    "passport": "~0.2.0",
+    "passport-github": "~0.1.5",
+    "passport-weibo": "~0.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
