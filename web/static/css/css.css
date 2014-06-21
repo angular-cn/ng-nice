@@ -5981,9 +5981,6 @@ a:hover {
   min-width: 80px;
   text-align: center;
 }
-.navbar .navbar-collapse .navbar-nav li.active {
-  background: #303436;
-}
 .navbar .navbar-collapse .navbar-nav li.active a {
   background: #303436;
 }
