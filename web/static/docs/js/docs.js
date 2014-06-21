@@ -96,7 +96,7 @@ angular.module('DocsController', [])
 
   $scope.afterPartialLoaded = function() {
     var pagePath = $scope.currentPage ? $scope.currentPage.path : $location.path();
-    $window._gaq.push(['_trackPageview', pagePath]);
+    //$window._gaq.push(['_trackPageview', pagePath]);
   };
 
   /** stores a cookie that is used by apache to decide which manifest ot send */

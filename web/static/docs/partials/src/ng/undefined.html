@@ -1,0 +1,68 @@
+
+
+<div>
+  <a ng-click="openPlunkr('examples/example-example3')" class="btn pull-right">
+    <i class="glyphicon glyphicon-edit">&nbsp;</i>
+    Edit in Plunker</a>
+  <div class="runnable-example"
+      path="examples/example-example3"
+      module="cacheExampleApp">
+
+   
+    <div class="runnable-example-file" 
+      name="index.html"
+      language="html"
+      type="html">
+      <pre><code>&lt;div ng-controller=&quot;CacheController&quot;&gt;&#10;  &lt;input ng-model=&quot;newCacheKey&quot; placeholder=&quot;Key&quot;&gt;&#10;  &lt;input ng-model=&quot;newCacheValue&quot; placeholder=&quot;Value&quot;&gt;&#10;  &lt;button ng-click=&quot;put(newCacheKey, newCacheValue)&quot;&gt;Cache&lt;/button&gt;&#10;&#10;  &lt;p ng-if=&quot;keys.length&quot;&gt;Cached Values&lt;/p&gt;&#10;  &lt;div ng-repeat=&quot;key in keys&quot;&gt;&#10;    &lt;span ng-bind=&quot;key&quot;&gt;&lt;/span&gt;&#10;    &lt;span&gt;: &lt;/span&gt;&#10;    &lt;b ng-bind=&quot;cache.get(key)&quot;&gt;&lt;/b&gt;&#10;  &lt;/div&gt;&#10;&#10;  &lt;p&gt;Cache Info&lt;/p&gt;&#10;  &lt;div ng-repeat=&quot;(key, value) in cache.info()&quot;&gt;&#10;    &lt;span ng-bind=&quot;key&quot;&gt;&lt;/span&gt;&#10;    &lt;span&gt;: &lt;/span&gt;&#10;    &lt;b ng-bind=&quot;value&quot;&gt;&lt;/b&gt;&#10;  &lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
+    </div>
+  
+    <div class="runnable-example-file" 
+      name="script.js"
+      language="js"
+      type="js">
+      <pre><code>angular.module(&#39;cacheExampleApp&#39;, []).&#10;  controller(&#39;CacheController&#39;, [&#39;$scope&#39;, &#39;$cacheFactory&#39;, function($scope, $cacheFactory) {&#10;    $scope.keys = [];&#10;    $scope.cache = $cacheFactory(&#39;cacheId&#39;);&#10;    $scope.put = function(key, value) {&#10;      $scope.cache.put(key, value);&#10;      $scope.keys.push(key);&#10;    };&#10;  }]);</code></pre>
+    </div>
+  
+    <div class="runnable-example-file" 
+      name="style.css"
+      language="css"
+      type="css">
+      <pre><code>p {&#10;  margin: 10px 0 3px;&#10;}</code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="examples/example-example3/index.html" name="example-example3"></iframe>
+  </div>
+</div>
+
+uot;,&#10;  &quot;htmlComment&quot;:&#10;      &quot;&lt;span onmouseover=&#39;this.textContent=\&quot;PWN3D!\&quot;&#39;&gt;Is &lt;i&gt;anyone&lt;/i&gt; reading this?&lt;/span&gt;&quot;&#10;},&#10;{ &quot;name&quot;: &quot;Bob&quot;,&#10;  &quot;htmlComment&quot;: &quot;&lt;i&gt;Yes!&lt;/i&gt;  Am I the only other one?&quot;&#10;}&#10;]</code></pre>
+    </div>
+  
+    <div class="runnable-example-file" 
+      name="protractor.js"
+      type="protractor"
+      language="js">
+      <pre><code>describe(&#39;SCE doc demo&#39;, function() {&#10;it(&#39;should sanitize untrusted values&#39;, function() {&#10;  expect(element(by.css(&#39;.htmlComment&#39;)).getInnerHtml())&#10;      .toBe(&#39;&lt;span&gt;Is &lt;i&gt;anyone&lt;/i&gt; reading this?&lt;/span&gt;&#39;);&#10;});&#10;&#10;it(&#39;should NOT sanitize explicitly trusted values&#39;, function() {&#10;  expect(element(by.id(&#39;explicitlyTrustedHtml&#39;)).getInnerHtml()).toBe(&#10;      &#39;&lt;span onmouseover=&quot;this.textContent=&quot;Explicitly trusted HTML bypasses &#39; +&#10;      &#39;sanitization.&quot;&quot;&gt;Hover over this text.&lt;/span&gt;&#39;);&#10;});&#10;});</code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="examples/example-example62/index.html" name="example-example62"></iframe>
+  </div>
+</div>
+
+lt;/div&gt;&#10;&lt;/div&gt;</code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="examples/example-example60/index.html" name="example-example60"></iframe>
+  </div>
+</div>
+
+ext()).toMatch(&#39;0&#39;);&#10;  expect(data.getText()).toMatch(&#39;Request failed&#39;);&#10;});</code></pre>
+    </div>
+  
+
+    <iframe class="runnable-example-frame" src="examples/example-example58/index.html" name="example-example58"></iframe>
+  </div>
+</div>
+
