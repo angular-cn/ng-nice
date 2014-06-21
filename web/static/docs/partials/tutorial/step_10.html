@@ -1,28 +1,25 @@
-<a href="http://github.com/angular/angular.js/edit/master/docs/content/tutorial/step_10.ngdoc" class="improve-docs btn btn-primary"><i class="icon-edit"> </i> Improve this doc</a><h1><code ng:non-bindable=""></code>
-<div><span class="hint"></span>
-</div>
-</h1>
-<div><div class="tutorial-page tutorial-10-event-handlers-page"><ul doc-tutorial-nav="10"></ul>
+<a href='http://github.com/angular/angular.js/edit/master/docs/content/tutorial/step_10.ngdoc' class='improve-docs btn btn-primary'><i class="glyphicon glyphicon-edit">&nbsp;</i>Improve this doc</a>
+
+
+<ul doc-tutorial-nav="10"></ul>
 
 
 <p>In this step, you will add a clickable phone image swapper to the phone details page.</p>
-<div doc-tutorial-reset="10">
-</div>
-
-
-<p>The phone details view displays one large image of the current phone and several smaller thumbnail
+<ul>
+<li>The phone details view displays one large image of the current phone and several smaller thumbnail
 images. It would be great if we could replace the large image with any of the thumbnails just by
-clicking on the desired thumbnail image. Let&#39;s have a look at how we can do this with Angular.</p>
-<p>The most important changes are listed below. You can see the full diff on <a href="https://github.com/angular/angular-phonecat/compare/step-9...step-10">GitHub</a>:</p>
-<h3 id="controller">Controller</h3>
-<p><strong><code>app/js/controllers.js</code>:</strong>
-<pre class="prettyprint linenums">
-...
-var phonecatControllers = angular.module('phonecatControllers',[]);
+clicking on the desired thumbnail image. Let&#39;s have a look at how we can do this with Angular.</li>
+</ul>
+<div doc-tutorial-reset="10"></div>
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$http',
+<h2 id="controller">Controller</h2>
+<p><strong><code>app/js/controllers.js</code>:</strong></p>
+<pre><code class="lang-js">...
+var phonecatControllers = angular.module(&#39;phonecatControllers&#39;,[]);
+
+phonecatControllers.controller(&#39;PhoneDetailCtrl&#39;, [&#39;$scope&#39;, &#39;$routeParams&#39;, &#39;$http&#39;,
   function($scope, $routeParams, $http) {
-    $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
+    $http.get(&#39;phones/&#39; + $routeParams.phoneId + &#39;.json&#39;).success(function(data) {
       $scope.phone = data;
       $scope.mainImageUrl = data.images[0];
     });
@@ -30,27 +27,24 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$h
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
     }
-  }]);
-</pre>
+  }]);</code></pre>
 <p>In the <code>PhoneDetailCtrl</code> controller, we created the <code>mainImageUrl</code> model property and set its
 default value to the first phone image URL.</p>
 <p>We also created a <code>setImage</code> event handler function that will change the value of <code>mainImageUrl</code>.</p>
-<h3 id="template">Template</h3>
-<p><strong><code>app/partials/phone-detail.html</code>:</strong>
-<pre class="prettyprint linenums">
-&lt;img ng-src="{{mainImageUrl}}" class="phone"&gt;
+<h2 id="template">Template</h2>
+<p><strong><code>app/partials/phone-detail.html</code>:</strong></p>
+<pre><code class="lang-html">&lt;img ng-src=&quot;{{mainImageUrl}}&quot; class=&quot;phone&quot;&gt;
 
 ...
 
-&lt;ul class="phone-thumbs"&gt;
-  &lt;li ng-repeat="img in phone.images"&gt;
-    &lt;img ng-src="{{img}}" ng-click="setImage(img)"&gt;
+&lt;ul class=&quot;phone-thumbs&quot;&gt;
+  &lt;li ng-repeat=&quot;img in phone.images&quot;&gt;
+    &lt;img ng-src=&quot;{{img}}&quot; ng-click=&quot;setImage(img)&quot;&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-...
-</pre>
+...</code></pre>
 <p>We bound the <code>ngSrc</code> directive of the large image to the <code>mainImageUrl</code> property.</p>
-<p>We also registered an <a href="api/ng.directive:ngClick"><code><code>ngClick</code></code></a>
+<p>We also registered an <a href="api/ng/directive/ngClick"><code>ngClick</code></a>
 handler with thumbnail images. When a user clicks on one of the thumbnail images, the handler will
 use the <code>setImage</code> event handler function to change the value of the <code>mainImageUrl</code> property to the
 URL of the thumbnail image.</p>
@@ -59,35 +53,31 @@ TODO!
 <img  class="diagram" src="img/tutorial/tutorial_10-11_final.png">
 </div>
 
-<h3 id="test">Test</h3>
+<h2 id="test">Test</h2>
 <p>To verify this new feature, we added two end-to-end tests. One verifies that the main image is set
 to the first phone image by default. The second test clicks on several thumbnail images and
 verifies that the main image changed appropriately.</p>
-<p><strong><code>test/e2e/scenarios.js</code>:</strong>
-<pre class="prettyprint linenums">
-...
-  describe('Phone detail view', function() {
+<p><strong><code>test/e2e/scenarios.js</code>:</strong></p>
+<pre><code class="lang-js">...
+  describe(&#39;Phone detail view&#39;, function() {
 
 ...
 
-    it('should display the first phone image as the main phone image', function() {
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+    it(&#39;should display the first phone image as the main phone image&#39;, function() {
+      expect(element(by.css(&#39;img.phone&#39;)).getAttribute(&#39;src&#39;)).toMatch(/img\/phones\/nexus-s.0.jpg/);
     });
 
 
-    it('should swap main image if a thumbnail image is clicked on', function() {
-      element('.phone-thumbs li:nth-child(3) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
+    it(&#39;should swap main image if a thumbnail image is clicked on&#39;, function() {
+      element(by.css(&#39;.phone-thumbs li:nth-child(3) img&#39;)).click();
+      expect(element(by.css(&#39;img.phone&#39;)).getAttribute(&#39;src&#39;)).toMatch(/img\/phones\/nexus-s.2.jpg/);
 
-      element('.phone-thumbs li:nth-child(1) img').click();
-      expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
+      element(by.css(&#39;.phone-thumbs li:nth-child(1) img&#39;)).click();
+      expect(element(by.css(&#39;img.phone&#39;)).getAttribute(&#39;src&#39;)).toMatch(/img\/phones\/nexus-s.0.jpg/);
     });
-  });
-});
-</pre>
-<p>You can now rerun <code>./scripts/e2e-test.sh</code> or refresh the browser tab with the end-to-end test
-runner to see the tests run, or you can see them running on <a href="http://angular.github.com/angular-phonecat/step-10/test/e2e/runner.html">Angular&#39;s server</a>.</p>
-<h2 id="experiments">Experiments</h2>
+  });</code></pre>
+<p>You can now rerun <code>npm run protractor</code> to see the tests run.</p>
+<h1 id="experiments">Experiments</h1>
 <ul>
 <li><p>Let&#39;s add a new controller method to <code>PhoneDetailCtrl</code>:</p>
 <pre><code>    $scope.hello = function(name) {
@@ -95,7 +85,7 @@ runner to see the tests run, or you can see them running on <a href="http://angu
     }</code></pre>
 <p>and add:</p>
 <pre><code>    &lt;button ng-click=&quot;hello(&#39;Elmo&#39;)&quot;&gt;Hello&lt;/button&gt;</code></pre>
-<p>to the <code>phone-details.html</code> template.</p>
+<p>to the <code>phone-detail.html</code> template.</p>
 </li>
 </ul>
 <div style="display: none">
@@ -109,7 +99,8 @@ template remains operational.
 </div>
 
 
-<h2 id="summary">Summary</h2>
+<h1 id="summary">Summary</h1>
 <p>With the phone image swapper in place, we&#39;re ready for <a href="tutorial/step_11">step 11</a> to
 learn an even better way to fetch data.</p>
-<ul doc-tutorial-nav="10"></ul></div></div>
+<ul doc-tutorial-nav="10"></ul>
+

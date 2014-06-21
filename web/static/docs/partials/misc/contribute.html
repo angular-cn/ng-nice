@@ -1,25 +1,25 @@
-<a href="http://github.com/angular/angular.js/edit/master/docs/content/misc/contribute.ngdoc" class="improve-docs btn btn-primary"><i class="icon-edit"> </i> Improve this doc</a><h1><code ng:non-bindable=""></code>
-<div><span class="hint"></span>
-</div>
-</h1>
-<div><div class="develop-page"><h2 id="building-and-testing-angularjs">Building and Testing AngularJS</h2>
+<a href='http://github.com/angular/angular.js/edit/master/docs/content/misc/contribute.ngdoc' class='improve-docs btn btn-primary'><i class="glyphicon glyphicon-edit">&nbsp;</i>Improve this doc</a>
+
+
+<h1 id="building-and-testing-angularjs">Building and Testing AngularJS</h1>
 <p>This document describes how to set up your development environment to build and test AngularJS, and
 explains the basic mechanics of using <code>git</code>, <code>node</code>, <code>npm</code>, <code>grunt</code>, and <code>bower</code>.</p>
 <p>See the <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md">contributing guidelines</a>
 for how to contribute your own code to AngularJS.</p>
 <ol>
-<li><a href="#building-and-testing-angularjs_installing-dependencies">Installing Dependencies</a></li>
-<li><a href="#building-and-testing-angularjs_forking-angular-on-github">Forking Angular on Github</a></li>
-<li><a href="#building-and-testing-angularjs_building-angularjs">Building AngularJS</a></li>
-<li><a href="#building-and-testing-angularjs_running-a-local-development-web-server">Running a Local Development Web Server</a></li>
-<li><a href="#building-and-testing-angularjs_running-the-unit-test-suite">Running the Unit Test Suite</a></li>
-<li><a href="#building-and-testing-angularjs_running-the-end-to-end-test-suite">Running the End-to-end Test Suite</a></li>
+<li><a href="misc/contribute#installing-dependencies">Installing Dependencies</a></li>
+<li><a href="misc/contribute#forking-angular-on-github">Forking Angular on Github</a></li>
+<li><a href="misc/contribute#building-angularjs">Building AngularJS</a></li>
+<li><a href="misc/contribute#running-a-local-development-web-server">Running a Local Development Web Server</a></li>
+<li><a href="misc/contribute#running-the-unit-test-suite">Running the Unit Test Suite</a></li>
+<li><a href="misc/contribute#running-the-end-to-end-test-suite">Running the End-to-end Test Suite</a></li>
 </ol>
-<h3 id="building-and-testing-angularjs_installing-dependencies">Installing Dependencies</h3>
+<h2 id="installing-dependencies">Installing Dependencies</h2>
 <p>Before you can build AngularJS, you must install and configure the following dependencies on your
 machine:</p>
 <ul>
-<li><p><a href="http://git-scm.com/">Git</a>: The <a href="http://help.github.com/mac-git-installation">Github Guide to Installing Git</a> is a good source of information.</p>
+<li><p><a href="http://git-scm.com/">Git</a>: The <a href="https://help.github.com/articles/set-up-git">Github Guide to
+Installing Git</a> is a good source of information.</p>
 </li>
 <li><p><a href="http://nodejs.org">Node.js</a>: We use Node to generate the documentation, run a
 development web server, run tests, and generate distributable files. Depending on your system, you can install Node either from source or as a
@@ -36,10 +36,12 @@ and included in your <a href="http://docs.oracle.com/javase/tutorial/essential/e
 <pre><code class="lang-shell">npm install -g bower</code></pre>
 </li>
 </ul>
-<h3 id="building-and-testing-angularjs_forking-angular-on-github">Forking Angular on Github</h3>
+<p><strong>Note:</strong> You may need to use sudo (for OSX, *nix, BSD etc) or run your command shell as Administrator (for Windows) to install Grunt &amp;
+Bower globally.</p>
+<h2 id="forking-angular-on-github">Forking Angular on Github</h2>
 <p>To create a Github account, follow the instructions <a href="https://github.com/signup/free">here</a>.
 Afterwards, go ahead and <a href="http://help.github.com/forking">fork</a> the <a href="https://github.com/angular/angular.js">main AngularJS repository</a>.</p>
-<h3 id="building-and-testing-angularjs_building-angularjs">Building AngularJS</h3>
+<h2 id="building-angularjs">Building AngularJS</h2>
 <p>To build AngularJS, you clone the source code repository and use Grunt to generate the non-minified and
 minified AngularJS files:</p>
 <pre><code class="lang-shell"># Clone your Github repository:
@@ -64,6 +66,16 @@ grunt package</code></pre>
 Administrator). This is because <code>grunt package</code> creates some symbolic links.
 </div>
 
+<div class="alert alert-warning">
+<strong>Note:</strong> If you&#39;re using Linux, and npm install fails with the message
+&#39;Please try running this command again as root/Administrator.&#39;, you may need to globally install grunt and bower:
+<ul>
+<li>sudo npm install -g grunt-cli</li>
+<li>sudo npm install -g bower</li>
+</ul>
+
+</div>
+
 <p>The build output can be located under the <code>build</code> directory. It consists of the following files and
 directories:</p>
 <ul>
@@ -83,7 +95,7 @@ artifacts.</p>
 <li><p><code>docs/docs-scenario.html</code> — The End2End test runner for the documentation application.</p>
 </li>
 </ul>
-<h3 id="building-and-testing-angularjs_running-a-local-development-web-server">Running a Local Development Web Server</h3>
+<h2 id="running-a-local-development-web-server">Running a Local Development Web Server</h2>
 <p>To debug code and run end-to-end tests, it is often useful to have a local HTTP server. For this purpose, we have
 made available a local web server based on Node.js.</p>
 <ol>
@@ -94,8 +106,11 @@ made available a local web server based on Node.js.</p>
 <pre><code>http://localhost:8000/</code></pre>
 <p>By default, it serves the contents of the AngularJS project directory.</p>
 </li>
+<li><p>To access the locally served docs, visit this URL:</p>
+<pre><code>http://localhost:8000/build/docs/</code></pre>
+</li>
 </ol>
-<h3 id="building-and-testing-angularjs_running-the-unit-test-suite">Running the Unit Test Suite</h3>
+<h2 id="running-the-unit-test-suite">Running the Unit Test Suite</h2>
 <p>We write unit and integration tests with Jasmine and execute them with Karma. To run all of the
 tests once on Chrome run:</p>
 <pre><code class="lang-shell">grunt test:unit</code></pre>
@@ -117,8 +132,9 @@ of Karma running, read Karma&#39;s console output for the correct URL):</p>
 </ol>
 <p>To learn more about all of the preconfigured Grunt tasks run:</p>
 <pre><code class="lang-shell">grunt --help</code></pre>
-<h3 id="building-and-testing-angularjs_running-the-end-to-end-test-suite">Running the End-to-end Test Suite</h3>
-<p>Simply run:</p>
+<h2 id="running-the-end-to-end-test-suite">Running the End-to-end Test Suite</h2>
+<p>Angular&#39;s end to end tests are run with Protractor. Simply run:</p>
 <pre><code class="lang-shell">grunt test:e2e</code></pre>
-<p>This will start the webserver and run the tests.</p>
-</div></div>
+<p>This will start the webserver and run the tests on Chrome.</p>
+
+
