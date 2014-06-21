@@ -5961,6 +5961,9 @@ a:hover {
 .markdown code {
   white-space: pre-line;
 }
+.markdown img {
+  max-width: 100%;
+}
 .btn {
   min-width: 80px;
 }
