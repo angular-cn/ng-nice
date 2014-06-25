@@ -12,13 +12,23 @@
                 <!--AngularJS Nice-->
             </a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="<%=locals.current_nav == 'home' ? 'active' : ''%>">
                     <a href="/"><i class="fa fa-home"></i> 首页</a>
                 </li>
-                <li>
-                    <a href="/docs/guide"><i class="fa fa-book"></i> 开发指南</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-book"></i> 开发 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/docs/tutorial">Tutorial</a></li>
+                        <li><a href="/docs/guide">Developer Guide</a></li>
+                        <li><a href="/docs/api">API Reference</a></li>
+                        <li><a href="/docs/error">Error Reference</a></li>
+                        <li><a href="/docs/misc/contribute">Contribute</a></li>
+                        <li><a href="http://code.angularjs.org/">Download</a></li>
+                    </ul>
                 </li>
                 <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>"><a href="/showcase">展示案例</a>
                 <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" ><a href="/about">关于</a>

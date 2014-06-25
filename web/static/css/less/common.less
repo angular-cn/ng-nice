@@ -112,6 +112,20 @@ a:hover {
             background : #303436;
           }
         }
+        &.dropdown {
+          &.open {
+            li {
+              text-align: left;
+              a {
+                background : transparent;
+                &:hover{
+                  background : #ebebeb;
+                }
+              }
+            }
+
+          }
+        }
       }
     }
     .divider-vertical {
@@ -125,21 +139,19 @@ a:hover {
   }
 }
 
-.btn-group {
-  .dropdown-menu {
-    padding : 3px 0;
-    li {
-      margin      : 0 3px;
+.dropdown-menu {
+  padding : 3px 0;
+  li {
+    margin      : 0 3px;
+    line-height : 30px;
+    a {
       line-height : 30px;
-      a {
-        line-height : 30px;
-      }
-      &.divider {
-        margin : 3px 0;
-      }
     }
-
+    &.divider {
+      margin : 3px 0;
+    }
   }
+
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {

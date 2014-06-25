@@ -5987,6 +5987,15 @@ a:hover {
 .navbar .navbar-collapse .navbar-nav li.active a {
   background: #303436;
 }
+.navbar .navbar-collapse .navbar-nav li.dropdown.open li {
+  text-align: left;
+}
+.navbar .navbar-collapse .navbar-nav li.dropdown.open li a {
+  background: transparent;
+}
+.navbar .navbar-collapse .navbar-nav li.dropdown.open li a:hover {
+  background: #ebebeb;
+}
 .navbar .navbar-collapse .divider-vertical {
   border-style: solid;
   border-width: 1px;
@@ -5995,17 +6004,17 @@ a:hover {
   border-left-color: #111415;
   border-right-color: #646668;
 }
-.btn-group .dropdown-menu {
+.dropdown-menu {
   padding: 3px 0;
 }
-.btn-group .dropdown-menu li {
+.dropdown-menu li {
   margin: 0 3px;
   line-height: 30px;
 }
-.btn-group .dropdown-menu li a {
+.dropdown-menu li a {
   line-height: 30px;
 }
-.btn-group .dropdown-menu li.divider {
+.dropdown-menu li.divider {
   margin: 3px 0;
 }
 [ng\:cloak],
