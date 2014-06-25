@@ -16,9 +16,10 @@
         app_package = require("./package.json"),
         core = require("./core/"),
         locals_app = {
-            title  : "AngularJS Nice Things",
-            version: app_package.version,
-            env    : config.env
+            title   : "AngularJS Nice Things",
+            version : app_package.version,
+            env     : config.env,
+            base_url: config.base_url
         };
     app.use(compression());
     app.use(bodyParser());
