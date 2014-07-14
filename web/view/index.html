@@ -2,7 +2,11 @@
     <div class="center-panel">
         <div class="post-list-panel">
             <div class="panel-header">
-                <h4>最新文章</h4>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="<%=locals.current_nav == 'home' ? 'active' : ''%>"><a href="/" role="tab" >最新文章</a></li>
+                    <li class="<%=locals.current_nav == 'hots' ? 'active' : ''%>" class=""><a href="/hots">热门文章</a></li>
+                </ul>
+                <!--<h4><a href="/">最新文章</a></h4>-->
             </div>
             <ul class="post-list">
                 <%

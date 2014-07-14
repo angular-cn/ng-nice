@@ -45,6 +45,14 @@ var PostData = function (schema) {
         this.get_list_page(options, "-create_date", page, size, callback);
     };
 
+    this.get_list_for_hots = function (page, size, callback) {
+        var options = {
+            published : constant.post.published.yes,
+            is_deleted: constant.is_deleted.no
+        };
+        this.get_list_page(options, "-hits", page, size, callback);
+    };
+
     this.update = function (id, uid, category, title, summary, content, published, callback) {
         var update = {
             $set: {
