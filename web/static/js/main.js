@@ -1,18 +1,18 @@
 /*global ngNice*/
 (function () {
 
-    var requires = ['ui.bootstrap'];
+    var requires = ['ui.bootstrap', 'w5c.validator'];
     var ngApp = ngNice.ngApp = angular.module("app", requires);
 
-    ngApp.config(['$httpProvider', function ($httpProvider) {
-        w5cValidator.init({
-            blur_trig   : false,
-            show_error  : function () {
+    ngApp.config(['$httpProvider', 'w5cValidatorProvider', function ($httpProvider, w5cValidatorProvider) {
+        w5cValidatorProvider.config({
+            blurTrig   : false,
+            showError  : function () {
             },
-            remove_error: function () {
+            removeError: function () {
             }
         });
-        w5cValidator.set_rules({
+        w5cValidatorProvider.setRules({
             user_name        : {
                 required: "输入的用户名不能为空",
                 pattern : "用户名必须输入字母、数字、下划线,以字母开头"
@@ -71,7 +71,7 @@
         $rootScope.global = {
             loading_done: false
         };
-        $('pre code').each(function(i, block) {
+        $('pre code').each(function (i, block) {
             hljs.highlightBlock(block);
         });
         $('.height-no-header').height($(window).height() - 70);
