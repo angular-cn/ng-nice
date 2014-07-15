@@ -7654,6 +7654,7 @@ body {
 }
 .center-panel .post-list-panel .avatar {
   position: absolute;
+  left: 5px;
 }
 .center-panel .post-detail {
   padding-right: 20px;
