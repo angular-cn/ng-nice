@@ -25,6 +25,22 @@ module.exports = function (grunt) {
                 src : 'web/static/js/<%= pkg.name %>.js',
                 dest: 'web/static/js/<%= pkg.name %>.min.js'
             }
+        },
+        jsdoc : {
+            basic: {
+                src    : ['core/api/user.js', 'core/api/post.js'],
+                options: {
+                    destination: 'docs/basic'
+                }
+            },
+            docstrap : {
+                src :  ['core/api/user.js', 'core/api/post.js'],
+                options : {
+                    destination : 'docs/docstrap',
+                    template : "node_modules/ink-docstrap/template",
+                    configure : "node_modules/ink-docstrap/template/jsdoc.conf.json"
+                }
+            }
         }
     });
 
@@ -32,10 +48,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-jsdoc');
     //grunt.loadNpmTasks('grunt-contrib-watch');
 
     // 每行registerTask定义一个任务
     grunt.registerTask('default', ['concat', 'uglify']);
     grunt.registerTask('check', ['jshint']);
+    grunt.registerTask('doc', ['jsdoc']);
 
 };
