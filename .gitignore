@@ -26,3 +26,4 @@ node_modules
 .idea
 config.js
 web/static/css/less/*.css
+docs
