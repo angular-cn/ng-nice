@@ -43,7 +43,7 @@
                     for(var i = 0;i < other_posts.length;i++)
                     {
                     %>
-                    <li><a href="/posts/<%-other_posts[i].id%>"><%-other_posts[i].title%></a></li>
+                    <li><a title="<%=other_posts[i].title%>" href="/posts/<%-other_posts[i].id%>"><%-other_posts[i].title%></a></li>
                     <%
                     }
                     }%>

@@ -7,7 +7,8 @@
         $scope.input_keywords = "";
 
         $scope.js_search = function (keywords) {
-            window.location.href = "https://www.google.com.hk/#q=site:ngnice.com+" + keywords;
+            window.open("https://www.google.com.hk/#q=site:ngnice.com+" + keywords);
+            //window.location.href = "https://www.google.com.hk/#q=site:ngnice.com+" + keywords;
         };
     }]);
 

@@ -5899,7 +5899,7 @@ a:active {
   color: #555;
 }
 a:hover {
-  color: #242628;
+  color: #000000;
 }
 .markdown {
   font-size: 16px;
@@ -7825,6 +7825,21 @@ body {
   line-height: 2em;
   padding: 10px;
 }
+.box-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.box-panel ul li {
+  margin: 0;
+  padding: 0 0 0 5px;
+  font-size: 15px;
+  list-style: none;
+  line-height: 28px;
+}
+.box-panel ul li a:hover {
+  text-decoration: underline;
+}
 .box-body .post-list {
   list-style: none;
   margin: 0;
@@ -7836,6 +7851,9 @@ body {
   font-size: 15px;
   list-style: none;
   line-height: 30px;
+}
+.box-body .post-list li a:hover {
+  text-decoration: underline;
 }
 .about {
   word-break: break-all;
