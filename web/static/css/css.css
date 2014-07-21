@@ -7866,6 +7866,10 @@ body {
   line-height: 30px;
   font-size: 17px;
 }
+.about ul,
+.about ol {
+  font-size: 17px;
+}
 .inner-body #cnzz_stat_icon_1000407174 {
   display: none;
 }
