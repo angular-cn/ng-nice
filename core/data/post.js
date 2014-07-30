@@ -5,6 +5,7 @@ var util = require("util"),
     utils = require("../utils");
 
 var PostData = function (schema) {
+    this.simpleFields = {content: 0};
     this.Schema = schema;
     BaseData.call(this, mongoose.model("post", schema));
     var self = this;
@@ -23,7 +24,7 @@ var PostData = function (schema) {
 
     this.get_list_for_uid = function (uid, page, size, callback) {
         var options = {author: uid, is_deleted: constant.is_deleted.no};
-        self.get_list_page(options, "-create_date", page, size, callback);
+        self.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_published_for_uid = function (uid, size, callback) {
@@ -34,7 +35,7 @@ var PostData = function (schema) {
 
     this.get_list = function (options, page, size, callback) {
         options.is_deleted = constant.is_deleted.no;
-        self.get_list_page(options, "-create_date", page, size, callback);
+        self.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_list_for_home = function (page, size, callback) {
@@ -42,7 +43,7 @@ var PostData = function (schema) {
             published : constant.post.published.yes,
             is_deleted: constant.is_deleted.no
         };
-        this.get_list_page(options, "-create_date", page, size, callback);
+        this.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_list_for_hots = function (page, size, callback) {
@@ -50,7 +51,7 @@ var PostData = function (schema) {
             published : constant.post.published.yes,
             is_deleted: constant.is_deleted.no
         };
-        this.get_list_page(options, "-hits", page, size, callback);
+        this.get_list_page(options, self.simpleFields, "-hits", page, size, callback);
     };
 
     this.update = function (id, uid, category, title, summary, content, published, callback) {
