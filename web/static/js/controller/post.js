@@ -9,7 +9,7 @@
                 $scope.posts_total = result.data.total;
                 if (page === 1) {
                     $scope.posts = result.data.posts;
-                    $scope.selected_post = $scope.posts[0];
+                    $scope.js_select_post($scope.posts[0])
                 } else {
                     $scope.posts = $scope.posts.concat(result.data.posts);
                 }
@@ -31,7 +31,9 @@
         };
 
         $scope.js_select_post = function (post) {
-            $scope.selected_post = post;
+            data.post.get(post.id).success(function(result){
+                $scope.selected_post = result.data;
+            });
         };
 
         $scope.js_unpublish_post = function (post) {
