@@ -41,11 +41,14 @@
         var now = new Date();
         return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     });
+    morgan.token('operationId', function (req) {
+        return req.context ? req.context.operationId : "null";
+    });
     if ('development' === config.env) {
-        app.use(morgan(':method :url :status :remote-addr :data [:date][:response-time ms]'));
+        app.use(morgan(':method :url :status :remote-addr :data [:date][:response-time ms] [:operationId]'));
         locals_app.site_scripts = config.site_scripts;
     } else {
-        app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms]'));
+        app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
         //URL 检查并重定向
         app.use(function (req, res, next) {
             if (req.headers.host == "angular.duapp.com") {

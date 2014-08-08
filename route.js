@@ -8,6 +8,7 @@
     module.exports = function (app) {
         //TODO::
         app.use(core.init);
+        app.use(core.domainMiddleware);
 
         // 微博
         app.use(passport.initialize());
@@ -51,6 +52,7 @@
         app.get('/hots', controller.home.hots);
         app.get('/about', controller.home.about);
         app.get('/donate', controller.home.donate);
+        app.get('/error', controller.home.error);
 
         // User
         app.get('/signin', controller.user.signin);
@@ -77,10 +79,7 @@
             res.redirect("/");
         });
 
-        app.use(function (error, req, res, next) {
-            console.log("request error:" + error);
-            res.status(500).end();
-        });
+        app.use(core.errorHandler);
 
     };
 })();
