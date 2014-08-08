@@ -31,6 +31,7 @@
     app.engine('html', require('ejs').renderFile);
     app.use(express_layout);
     app.set('layout', 'layout');
+    app.set("env", config.env);
     app.disable("x-powered-by");
 
     morgan.token('data', function (req) {

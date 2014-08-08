@@ -7,7 +7,7 @@
 
     module.exports = function (app) {
         //TODO::
-        app.use("*", core.init);
+        app.use(core.init);
 
         // 微博
         app.use(passport.initialize());
@@ -68,13 +68,18 @@
         // Showcase
         // css return 404
         app.get(/\/showcase\/([^?]+).css$/, function (req, res) {
-            res.send(404);
+            res.status(404).end();
         });
         app.get('/showcase/*', controller.home.showcase);
         // Angular Docs
         app.get('/docs/*', controller.home.doc_home);
         app.get('/*', function (req, res) {
             res.redirect("/");
+        });
+
+        app.use(function (error, req, res, next) {
+            console.log("request error:" + error);
+            res.status(500).end();
         });
 
     };

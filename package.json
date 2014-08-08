@@ -8,7 +8,6 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "express": "~4.0.0",
     "ejs": "~0.8.5",
     "express3-ejs-layout": "~0.0.1",
     "morgan": "~1.0.1",
@@ -26,7 +25,8 @@
     "compression": "~1.0.7",
     "passport": "~0.2.0",
     "passport-github": "~0.1.5",
-    "passport-weibo": "~0.1.0"
+    "passport-weibo": "~0.1.0",
+    "express": "~4.8.2"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
