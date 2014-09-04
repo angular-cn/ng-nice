@@ -45,7 +45,7 @@
         app.put("/api/books/:bid", api.book.update);
         app.delete("/api/books/:bid", api.book.delete);
         app.post("/api/upload", api.book.upload);
-        app.get("/api/test/user/check", api.book.check);
+        app.get("/api/test/user/name/check", api.book.check);
 
         // Controllers
         // Home
