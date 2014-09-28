@@ -6,7 +6,8 @@
         constant = require("../constant"),
         data = require("../data"),
         utils = require("../utils"),
-        _ = require("lodash");
+        _ = require("lodash"),
+        kits = require("../kits");
 
     //POST /api/post
     exports.add = function (req, res) {
