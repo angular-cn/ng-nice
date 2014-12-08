@@ -15,9 +15,9 @@ NgNice站点目前提供的功能如下：
 
 ## 整体架构技术说明
 
-服务端技术：NodeJS + Express4.x + Mongodb
+服务端技术：Node.js >=0.10.x + Express >=4.x + Mongodb >=2.x
 
-前端技术：AngularJS1.2.x + Bootstrap3.x
+前端技术：AngularJS >= 1.2.x + Bootstrap >= 3.x
 
 ## 本地搭建步骤
 
