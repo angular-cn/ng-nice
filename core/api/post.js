@@ -1,7 +1,7 @@
 /*global exports,process,require*/
 (function () {
     "use strict";
-    var config = require("../../config.js"),
+    var config = require("../config"),
         status = require("../status"),
         constant = require("../constant"),
         data = require("../data"),

@@ -20,24 +20,7 @@
     <div class='notifications top-right'></div>
 </div>
 
-
-<script type="text/javascript">
-    ngNice = window.ngNice || {};
-    ngNice.env = "<%=app.env%>";
-</script>
-<!--production,development-->
-<% if(app.env == "development") {
-    var scripts = app.site_scripts || [];
-    for (var i = 0, l = scripts.length; i < l; i++) { %>
-        <script src="/<%= scripts[i] %>?v=<%=app.version%>"></script>
-    <% } %>
-<% } else { %>
-        <script src="/js/ng-nice.min.js?v=<%=app.version%>"></script>
-        <script type="text/javascript">
-            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-            document.write(unescape("%3Cspan id='cnzz_stat_icon_1000407174'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000407174%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-<% } %>
+<%-include shared/scripts.html%>
 
 </body>
 </html>

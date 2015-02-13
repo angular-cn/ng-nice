@@ -22,25 +22,7 @@
 
 <%-include footer/footer.html%>
 
-<script type="text/javascript">
-    ngNice = window.ngNice || {};
-    ngNice.env = "<%=app.env%>";
-</script>
-<!--production,development-->
-<% if(app.env == "development") {%>
-    <%
-    var scripts = app.site_scripts || [];
-    for (var i = 0, l = scripts.length; i < l; i++) { %>
-        <script src="/<%= scripts[i] %>?v=<%=app.version%>"></script>
-    <% } %>
-<% } else { %>
-    <script src="/js/ng-nice.min.js?v=<%=app.version%>"></script>
-    <script>
-        var uyan_config = {
-            'du':'www.ngnice.com'
-        };
-    </script>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1883104"></script>
-<% } %>
+<%-include shared/scripts.html%>
+
 </body>
 </html>

@@ -12,19 +12,19 @@
         path = require('path'),
         app = express(),
         route = require("./route"),
-        config = require("./config.js"),
-        app_package = require("./package.json"),
+        config = require("./core/config"),
+        appPackage = require("./package.json"),
         core = require("./core/"),
-        locals_app = {
-            title   : "AngularJS Nice Things",
-            version : app_package.version,
-            env     : config.env,
-            base_url: config.base_url
+        localsApp = {
+            title  : config.title,
+            version: appPackage.version,
+            env    : config.env,
+            baseUrl: config.baseUrl
         };
     app.use(compression());
     app.use(bodyParser());
     app.use(methodOverride());
-    app.use(cookieParser(config.cookie_secret));
+    app.use(cookieParser(config.cookieSecret));
     app.set('views', __dirname + '/web/view');
     app.use(express.static(__dirname + '/web/static'));// {maxAge: 31557600000}
     app.set('view engine', 'html');
@@ -45,8 +45,8 @@
         return req.context ? req.context.operationId : "null";
     });
     if ('development' === config.env) {
-        app.use(morgan(':method :url :status :remote-addr :data [:date][:response-time ms] [:operationId]'));
-        locals_app.site_scripts = config.site_scripts;
+        app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
+        localsApp.siteScripts = config.siteScripts;
     } else {
         app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
         //URL 检查并重定向
@@ -65,7 +65,7 @@
         });
     }
 
-    app.locals.app = locals_app;
+    app.locals.app = localsApp;
 
     //初始化路由
     route(app);

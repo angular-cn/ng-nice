@@ -1,7 +1,7 @@
 /*global process,exports,require*/
 (function () {
     "use strict";
-    var config = require("../../config.js"),
+    var config = require("../config"),
         data = require("../data"),
         utils = require("../utils"),
         _ = require("lodash");
