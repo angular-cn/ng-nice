@@ -51,11 +51,6 @@
         localsApp.siteScripts = config.siteScripts;
     } else {
         app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
-        //URL 检查并重定向
-        app.use(function (req, res, next) {
-            console.log(req.headers.host);
-            next();
-        });
     }
 
     app.locals.app = localsApp;
