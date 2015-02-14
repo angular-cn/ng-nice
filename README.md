@@ -21,83 +21,49 @@ NgNice站点目前提供的功能如下：
 
 ## 本地搭建步骤
 
-1. 新建文件config.js ，拷贝 config.sample.js 内容到 config.js；
-1. 配置config.js，包括mongodb数据库链接字符串和cookie_secret；
-1. 运行命令 `npm install` 安装 NodeJS Modules。
-1. 运行命令 `node server` 启动服务。
+1. 配置开发环境的配置文件 core/development.js （包括mongodb数据库链接字符串和cookie_secret）；
+1. 运行命令 `npm install` 安装 NodeJS Modules；
+1. 运行命令 `node server` 启动服务；
+1. 生产环境使用 `NODE_ENV=production node server`(仅限linux环境下)。
 
 ## 大致目录结构
 
 ```
+.
+|-- bin
 |-- core
 |   |-- api
+|   |-- config
 |   |-- controller
 |   |-- data
-|   |   -- model
+|   |   `-- model
+|   |-- lib
 |   |-- mailer
-|   -- validation
- -- web
+|   `-- validation
+|-- test
+|   |-- karma
+|   `-- mocha
+|       `-- data
+`-- web
     |-- static
     |   |-- css
-    |   |-- docs
-    |   |   |-- components
-    |   |   |   |-- bootstrap
-    |   |   |   |   |-- css
-    |   |   |   |   |-- img
-    |   |   |   |   |-- js
-    |   |   |   |--font-awesome
-    |   |   |       |-- css
-    |   |   |       -- font
-    |   |   |-- css
-    |   |   |-- img
-    |   |   |   |-- guide
-    |   |   |   |-- tutorial
-    |   |   |-- js
-    |   |   |-- notes
-    |   |   |-- partials
-    |   |       |-- api
-    |   |       |-- cookbook
-    |   |       |-- error
-    |   |       |-- guide
-    |   |       |-- misc
-    |   |       |-- tutorial
-    |   |-- showcase
     |   |-- fonts
-    |   |   |--font-awesome
-    |   |       |-- 4.0.3
-    |   |           |-- fonts
-    |   |           |-- less
     |   |-- img
     |   |-- js
     |   |   |-- controller
     |   |   |-- directive
     |   |   |-- filter
-    |   |   -- service
+    |   |   |-- service
+    |   |   `-- tpl
+    |   |       |-- common
+    |   |       `-- directive
     |   |-- lib
-    |   |   |-- angular
-    |   |   |   -- 1.2.16
-    |   |   |-- angular-ui
-    |   |   |   -- ui-router
-    |   |   |       -- 0.2.10
-    |   |   |-- bootstrap
-    |   |   |   -- 3.1.1
-    |   |   |       |-- fonts
-    |   |   |       |-- js
-    |   |   |       |-- less
-    |   |   |-- jquery
-    |   |   |   -- 1.11.0
-    |   |   |-- markdown
-    |   |   |   -- 0.6.0
-    |   |   |-- marked
-    |   |   |   -- 0.3.2
-    |   |   |-- moment
-    |   |   |   -- 2.6.0
-    |   |   -- w5cValidator
-    |   |       |-- 1.0.0
-    |   |       -- 2.0.0
-    -- view
+    `-- view
         |-- footer
         |-- header
+        |-- home
         |-- post
-        -- user
+        |-- shared
+        `-- user
+
 ```
