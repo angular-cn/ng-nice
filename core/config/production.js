@@ -1,10 +1,10 @@
+var _ = require('lodash');
+
 var config = {
     port               : 8888,
-    host               : "127.0.0.1",
-    domain             : ".ngnice.local",
-    baseUrl            : "http://127.0.0.1:8888",
-    mongoServer        : "mongodb://127.0.0.1/ngnice",
-    cookieSecret      : "WOJIUSHINIUBI123456",
+    host               : "www.ngnice.com",
+    domain             : ".ngnice.com",
+    baseUrl            : "http://www.ngnice.com",
     errorHandlerOptions: {
         dumpExceptions: true,
         showStack     : true
@@ -19,5 +19,6 @@ var config = {
         }
     }
 };
+var envConfig = require("./production.confidential.js");
 
-module.exports = exports = config;
+module.exports = exports = _.merge(config, envConfig);;

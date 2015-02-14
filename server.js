@@ -6,7 +6,7 @@
         bodyParser = require('body-parser'),
         methodOverride = require('method-override'),
         cookieParser = require('cookie-parser'),
-        express_layout = require('express3-ejs-layout'),
+        expressLayout = require('express3-ejs-layout'),
         compression = require('compression'),
         http = require('http'),
         path = require('path'),
@@ -29,10 +29,12 @@
     app.use(express.static(__dirname + '/web/static'));// {maxAge: 31557600000}
     app.set('view engine', 'html');
     app.engine('html', require('ejs').renderFile);
-    app.use(express_layout);
+    app.use(expressLayout);
     app.set('layout', 'layout');
     app.set("env", config.env);
     app.disable("x-powered-by");
+    //启用反向代理
+    app.enable('trust proxy');
 
     morgan.token('data', function (req) {
         return "params:" + JSON.stringify(req.params) + ",query:" + JSON.stringify(req.query) + ",body:" + JSON.stringify(req.body);
@@ -51,11 +53,6 @@
         app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
         //URL 检查并重定向
         app.use(function (req, res, next) {
-            if (req.headers.host == "angular.duapp.com") {
-                res.writeHead(301, {'Location': 'http://' + config.host + req.url});
-                res.end();
-                return;
-            }
             if (req.headers.host !== config.host) {
                 return res.redirect('http://' + config.host + req.url);
             }

@@ -22,15 +22,15 @@
                         <i class="fa fa-book"></i> 开发 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<%=locals.app.base_url%>/docs/tutorial">Tutorial</a></li>
-                        <li><a href="<%=locals.app.base_url%>/docs/guide">Developer Guide</a></li>
-                        <li><a href="<%=locals.app.base_url%>/docs/api">API Reference</a></li>
-                        <li><a href="<%=locals.app.base_url%>/docs/error">Error Reference</a></li>
-                        <li><a href="<%=locals.app.base_url%>/docs/misc/contribute">Contribute</a></li>
+                        <li><a href="<%=locals.app.baseUrl%>/docs/tutorial">Tutorial</a></li>
+                        <li><a href="<%=locals.app.baseUrl%>/docs/guide">Developer Guide</a></li>
+                        <li><a href="<%=locals.app.baseUrl%>/docs/api">API Reference</a></li>
+                        <li><a href="<%=locals.app.baseUrl%>/docs/error">Error Reference</a></li>
+                        <li><a href="<%=locals.app.baseUrl%>/docs/misc/contribute">Contribute</a></li>
                         <li><a href="http://code.angularjs.org/">Download</a></li>
                     </ul>
                 </li>
-                <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>"><a href="<%=locals.app.base_url%>/showcase">展示案例</a>
+                <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>"><a href="<%=locals.app.baseUrl%>/showcase">展示案例</a>
                 <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" ><a href="/about">关于</a>
                 </li>
                 <%if(locals.is_authorized){%>
