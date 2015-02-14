@@ -53,12 +53,8 @@
         app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
         //URL 检查并重定向
         app.use(function (req, res, next) {
-            if (req.headers.host !== config.host) {
-                return res.redirect('http://' + config.host + req.url);
-            }
-            else {
-                next();
-            }
+            console.log(req.headers.host);
+            next();
         });
     }
 
