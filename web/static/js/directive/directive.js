@@ -14,7 +14,7 @@
                         } else {
                             element.html('');
                         }
-
+                     
                     });
 
                 }

@@ -8,13 +8,10 @@
         cookieParser = require('cookie-parser'),
         expressLayout = require('express3-ejs-layout'),
         compression = require('compression'),
-        http = require('http'),
-        path = require('path'),
         app = express(),
         route = require("./route"),
         config = require("./core/config"),
         appPackage = require("./package.json"),
-        core = require("./core/"),
         localsApp = {
             title  : config.title,
             version: appPackage.version,

@@ -24,6 +24,7 @@
                 summary = content;
             }
         }
+        
         //uid, title, summery, content, status, callback
         data.Post.add(user.id, category, title, summary, content, parseInt(published, 10), function (err) {
             if (err) {
