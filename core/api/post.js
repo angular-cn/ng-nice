@@ -40,7 +40,7 @@
         var page = req.param("page"),
             size = req.param("size");
         if (!size) {
-            size = config.per_page_count;
+            size = config.perPageCount;
         } else {
             size = parseInt(size);
         }

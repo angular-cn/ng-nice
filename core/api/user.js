@@ -25,8 +25,8 @@
             if (pwd !== user.password) {
                 return res.send({code: status.user_error.invalid_name_or_password});
             }
-            res.clearCookie(config.session_key, { path: '/' });
-            res.cookie(config.session_key, user.id, {
+            res.clearCookie(config.sessionKey, { path: '/' });
+            res.cookie(config.sessionKey, user.id, {
                 expires : expires,
                 httpOnly: true,
                 path    : '/',
