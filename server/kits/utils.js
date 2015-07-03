@@ -2,7 +2,7 @@ var crypto = require('crypto'),
     uuid = require("node-uuid"),
     moment = require("moment"),
     marked = require("marked"),
-    paginator = require("./lib/paginator");
+    paginator = require("../lib/paginator");
 
 /**
  *  encrypt

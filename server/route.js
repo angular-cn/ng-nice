@@ -1,20 +1,21 @@
 /*global exports,module,process,require*/
 (function () {
-    var controller = require("./server/controller"),
-        api = require("./server/api"),
-        core = require("./server"),
+    var controller = require("./controller"),
+        api = require("./api"),
+        handler = require("./handler"),
+        auth = require("./auth"),
         passport = require("passport");
 
     module.exports = function (app) {
         //TODO::
-        app.use(core.init);
-        app.use(core.domainMiddleware);
+        app.use(handler.init);
+        app.use(handler.domainMiddleware);
 
         // 微博
         app.use(passport.initialize());
-        core.passport.config(passport);
+        handler.passport.config(passport);
         app.get('/auth/weibo', passport.authenticate('weibo'));
-        app.get('/auth/weibo/callback', passport.authenticate('weibo', { failureRedirect: '/signin' }), function (req, res) {
+        app.get('/auth/weibo/callback', passport.authenticate('weibo', {failureRedirect: '/signin'}), function (req, res) {
             console.log("user:" + JSON.stringify(req.user));
             res.redirect('/');
         });
@@ -30,13 +31,13 @@
         app.put('/api/user/password', api.user.update_password);
 
         // Post
-        app.post('/api/post', core.check_auth, api.post.add);
-        app.get('/api/posts/me', core.check_auth, api.post.get_list_me);
-        app.get('/api/posts/:post_id', core.check_auth, api.post.get);
-        app.put('/api/posts/:post_id', core.check_auth, api.post.update);
-        app.delete('/api/posts/:post_id', core.check_auth, api.post.delete);
-        app.put('/api/posts/:post_id/publish', core.check_auth, api.post.publish);
-        app.put('/api/posts/:post_id/unpublish', core.check_auth, api.post.unpublish);
+        app.post('/api/post', auth.check(), api.post.add);
+        app.get('/api/posts/me', auth.check(), api.post.get_list_me);
+        app.get('/api/posts/:post_id', auth.check(), api.post.get);
+        app.put('/api/posts/:post_id', auth.check(), api.post.update);
+        app.delete('/api/posts/:post_id', auth.check(), api.post.delete);
+        app.put('/api/posts/:post_id/publish', auth.check(), api.post.publish);
+        app.put('/api/posts/:post_id/unpublish', auth.check(), api.post.unpublish);
 
         //Demo API
         app.get("/api/books", api.book.get_list);
@@ -63,10 +64,10 @@
         app.get('/user/account/setting', controller.user.setting);
 
         // Post
-        app.get('/post/add', controller.post.add);
-        app.get('/posts/me', controller.post.get_list_for_me);
-        app.get('/posts/:post_id', controller.post.detail);
-        app.get('/posts/:post_id/edit', controller.post.edit);
+        app.get('/post/add', auth.check(), controller.post.add);
+        app.get('/posts/me', auth.check(), controller.post.get_list_for_me);
+        app.get('/posts/:post_id', auth.check(), controller.post.detail);
+        app.get('/posts/:post_id/edit', auth.check(), controller.post.edit);
 
         // Showcase
         // css return 404
@@ -74,13 +75,12 @@
             res.status(404).end();
         });
         app.get('/showcase/*', controller.home.showcase);
-        // Angular Docs
-        app.get('/docs/*', controller.home.doc_home);
+
         app.get('/*', function (req, res) {
             res.redirect("/");
         });
 
-        app.use(core.errorHandler);
+        app.use(handler.errorHandler);
 
     };
 })();

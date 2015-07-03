@@ -2,10 +2,7 @@
 (function () {
     "use strict";
     var config = require("../config"),
-        status = require("../status"),
-        constant = require("../constant"),
         data = require("../data"),
-        utils = require("../utils"),
         _ = require("lodash"),
         kits = require("../kits");
 
@@ -29,9 +26,9 @@
         data.Post.add(user.id, category, title, summary, content, parseInt(published, 10), function (err) {
             if (err) {
                 console.log(err);
-                res.send({code: status.post_error.add_err});
+                res.send({code: kits.status.post_error.add_err});
             }
-            res.send({code: status.ok});
+            res.send({code: kits.status.ok});
         })
     };
 
@@ -46,14 +43,14 @@
         }
         data.Post.get_list_for_uid(req.user.id, page, size, function (err, posts, total) {
             if (err) {
-                res.send({code: status.post_error.get_list_err});
+                res.send({code: kits.status.post_error.get_list_err});
             }
             var new_posts = [];
             _.forEach(posts, function (item) {
                 var post = item.makeFull();
                 new_posts.push(post);
             });
-            res.send({code: status.ok, data: {posts: new_posts, total: total}});
+            res.send({code: kits.status.ok, data: {posts: new_posts, total: total}});
         });
     };
 
@@ -62,12 +59,12 @@
         var post_id = req.param("post_id");
         data.Post.get_by_id(post_id, function (err, post) {
             if (err) {
-                res.send({code: status.post.get_err});
+                res.send({code: kits.status.post.get_err});
             }
 //            if (post.author != req.user.id) {
-//                res.send({code: status.error.permission_deny});
+//                res.send({code: kits.status.error.permission_deny});
 //            }
-            res.send({code: status.ok, data: post});
+            res.send({code: kits.status.ok, data: post});
         });
     };
 
@@ -89,9 +86,9 @@
         data.Post.update(post_id, user.id, body.category, body.title, summary, content, body.published, function (err) {
             if (err) {
                 console.log("err:" + err);
-                res.send({code: status.post_error.update_err});
+                res.send({code: kits.status.post_error.update_err});
             }
-            res.send({code: status.ok});
+            res.send({code: kits.status.ok});
         });
     };
 
@@ -103,9 +100,9 @@
         data.Post.publish(post_id, user.id, function (err) {
             if (err) {
                 console.log("err:" + err);
-                res.send({code: status.post_error.publish_err});
+                res.send({code: kits.status.post_error.publish_err});
             }
-            res.send({code: status.ok});
+            res.send({code: kits.status.ok});
         });
     };
 
@@ -117,9 +114,9 @@
         data.Post.unpublish(post_id, user.id, function (err) {
             if (err) {
                 console.log("err:" + err);
-                res.send({code: status.post_error.publish_err});
+                res.send({code: kits.status.post_error.publish_err});
             }
-            res.send({code: status.ok});
+            res.send({code: kits.status.ok});
         });
     };
 
@@ -131,9 +128,9 @@
         data.Post.delete(post_id, user.id, function (err) {
             if (err) {
                 console.log("err:" + err);
-                res.send({code: status.post_error.delete_err});
+                res.send({code: kits.status.post_error.delete_err});
             }
-            res.send({code: status.ok});
+            res.send({code: kits.status.ok});
         });
     };
 })();

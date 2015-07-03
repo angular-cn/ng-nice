@@ -33,7 +33,7 @@
                 <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>"><a href="<%=locals.app.baseUrl%>/showcase">展示案例</a>
                 <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" ><a href="/about">关于</a>
                 </li>
-                <%if(locals.is_authorized){%>
+                <%if(locals.isAuthorized){%>
                 <li class="<%=locals.current_nav == 'my_posts' ? 'active' : ''%>">
                     <a href="/posts/me">我的文章</a>
                 </li>
@@ -44,7 +44,7 @@
             </ul>
             <div class="navbar-form navbar-right">
 
-                <%if(locals.is_authorized){
+                <%if(locals.isAuthorized){
                 %>
                 <div class="btn-group">
                     <a href="javascript:;" class="avatar dropdown-toggle" data-toggle="dropdown">

@@ -1,8 +1,7 @@
 var util = require("util"),
     BaseData = require("./base"),
     mongoose = require('mongoose'),
-    constant = require('../constant'),
-    utils = require("../utils");
+    kits = require('../kits');
 
 var PostData = function (schema) {
     this.simpleFields = {content: 0};
@@ -11,7 +10,7 @@ var PostData = function (schema) {
     var self = this;
     this.add = function (uid, category, title, summary, content, published, callback) {
         var post = new this.model({
-            id       : utils.short_guid(),
+            id       : kits.utils.short_guid(),
             title    : title,
             summary  : summary,
             content  : content,
@@ -23,33 +22,37 @@ var PostData = function (schema) {
     };
 
     this.get_list_for_uid = function (uid, page, size, callback) {
-        var options = {author: uid, is_deleted: constant.is_deleted.no};
+        var options = {author: uid, is_deleted: kits.constant.is_deleted.no};
         self.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_published_for_uid = function (uid, size, callback) {
-        var query = this.model.find({author: uid, published: constant.post.published.yes, is_deleted: constant.is_deleted.no});
+        var query = this.model.find({
+            author    : uid,
+            published : kits.constant.post.published.yes,
+            is_deleted: constant.is_deleted.no
+        });
         query.sort("hits");
         query.limit(size).exec(callback);
     };
 
     this.get_list = function (options, page, size, callback) {
-        options.is_deleted = constant.is_deleted.no;
+        options.is_deleted = kits.constant.is_deleted.no;
         self.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_list_for_home = function (page, size, callback) {
         var options = {
-            published : constant.post.published.yes,
-            is_deleted: constant.is_deleted.no
+            published : kits.constant.post.published.yes,
+            is_deleted: kits.constant.is_deleted.no
         };
         this.get_list_page(options, self.simpleFields, "-create_date", page, size, callback);
     };
 
     this.get_list_for_hots = function (page, size, callback) {
         var options = {
-            published : constant.post.published.yes,
-            is_deleted: constant.is_deleted.no
+            published : kits.constant.post.published.yes,
+            is_deleted: kits.constant.is_deleted.no
         };
         this.get_list_page(options, self.simpleFields, "-hits", page, size, callback);
     };
@@ -71,7 +74,7 @@ var PostData = function (schema) {
     this.publish = function (id, uid, callback) {
         var update = {
             $set: {
-                published   : constant.post.published.yes,
+                published   : kits.constant.post.published.yes,
                 publish_date: new Date().getTime(),
                 update_date : new Date().getTime()
             }
@@ -82,7 +85,7 @@ var PostData = function (schema) {
     this.unpublish = function (id, uid, callback) {
         var update = {
             $set: {
-                published  : constant.post.published.no,
+                published  : kits.constant.post.published.no,
                 update_date: new Date().getTime()
             }
         };
@@ -92,7 +95,7 @@ var PostData = function (schema) {
     this.delete = function (id, uid, callback) {
         var update = {
             $set: {
-                is_deleted: constant.is_deleted.yes
+                is_deleted: kits.constant.is_deleted.yes
             }
         };
         this.model.update({id: id}, update, callback);

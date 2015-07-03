@@ -9,7 +9,7 @@
         expressLayout = require('express3-ejs-layout'),
         compression = require('compression'),
         app = express(),
-        route = require("./route"),
+        route = require("./server/route"),
         config = require("./server/config"),
         appPackage = require("./package.json"),
         localsApp = {

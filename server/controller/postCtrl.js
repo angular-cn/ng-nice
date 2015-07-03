@@ -3,7 +3,7 @@
     "use strict";
     var config = require("../config"),
         data = require("../data"),
-        utils = require("../utils"),
+        kits = require("../kits"),
         _ = require("lodash");
 
 
@@ -28,8 +28,8 @@
             post.hits = post.hits + 1;
             post.save();
             var fullPost = post.makeFull();
-            fullPost.publish_date = utils.date_format.fullDateTime(post.publish_date);
-            fullPost.content = utils.markdown_to_html(fullPost.content);
+            fullPost.publish_date = kits.utils.date_format.fullDateTime(post.publish_date);
+            fullPost.content = kits.utils.markdown_to_html(fullPost.content);
             data.Post.get_published_for_uid(fullPost.author, 10, function (err, posts) {
                 if (err) {
                     res.send({code: status.post_error.get_list_err});
