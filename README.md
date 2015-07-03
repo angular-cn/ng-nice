@@ -25,6 +25,7 @@ NgNice站点目前提供的功能如下：
 1. 运行命令 `npm install` 安装 NodeJS Modules；
 1. 运行命令 `node app` 或者 `npm run start-dev` 启动服务；
 1. 生产环境使用 `NODE_ENV=production node app` 或者 `npm start`(仅限linux环境下)。
+1. 生产环境使用的配置文件为 server/config/production.js 和 production.confidential.js（数据库和cookieSecret铭感信息是不在代码库中，第一次部署需要新建此文件）
 
 ## 大致目录结构
 
