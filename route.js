@@ -1,8 +1,8 @@
 /*global exports,module,process,require*/
 (function () {
-    var controller = require("./core/controller"),
-        api = require("./core/api"),
-        core = require("./core"),
+    var controller = require("./server/controller"),
+        api = require("./server/api"),
+        core = require("./server"),
         passport = require("passport");
 
     module.exports = function (app) {

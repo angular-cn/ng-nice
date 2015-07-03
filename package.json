@@ -4,7 +4,8 @@
   "author": "why520crazy",
   "description": "ng-nice app!",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node app.js",
+    "start-dev": "NODE_ENV=development node app.js",
     "test": "grunt test"
   },
   "dependencies": {

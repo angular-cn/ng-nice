@@ -10,7 +10,7 @@
         compression = require('compression'),
         app = express(),
         route = require("./route"),
-        config = require("./core/config"),
+        config = require("./server/config"),
         appPackage = require("./package.json"),
         localsApp = {
             title  : config.title,

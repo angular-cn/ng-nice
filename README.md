@@ -21,17 +21,17 @@ NgNice站点目前提供的功能如下：
 
 ## 本地搭建步骤
 
-1. 配置开发环境的配置文件 core/config/development.js （包括 mongodb 数据库链接字符串和 cookie_secret）；
+1. 配置开发环境的配置文件 server/config/development.js （包括 mongodb 数据库链接字符串和 cookie_secret）；
 1. 运行命令 `npm install` 安装 NodeJS Modules；
-1. 运行命令 `node server` 启动服务；
-1. 生产环境使用 `NODE_ENV=production node server`(仅限linux环境下)。
+1. 运行命令 `node app` 或者 `npm run start-dev` 启动服务；
+1. 生产环境使用 `NODE_ENV=production node app` 或者 `npm start`(仅限linux环境下)。
 
 ## 大致目录结构
 
 ```
 .
 |-- bin
-|-- core
+|-- server
 |   |-- api
 |   |-- config
 |   |-- controller
