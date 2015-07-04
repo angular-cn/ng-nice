@@ -66,7 +66,7 @@
         // Post
         app.get('/post/add', auth.check(), controller.post.add);
         app.get('/posts/me', auth.check(), controller.post.get_list_for_me);
-        app.get('/posts/:post_id', auth.check(), controller.post.detail);
+        app.get('/posts/:post_id', controller.post.detail);
         app.get('/posts/:post_id/edit', auth.check(), controller.post.edit);
 
         // Showcase
