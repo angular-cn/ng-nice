@@ -30,7 +30,7 @@ var PostData = function (schema) {
         var query = this.model.find({
             author    : uid,
             published : kits.constant.post.published.yes,
-            is_deleted: constant.is_deleted.no
+            is_deleted: kits.constant.is_deleted.no
         });
         query.sort("hits");
         query.limit(size).exec(callback);
