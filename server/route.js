@@ -79,8 +79,6 @@
         app.get('/*', function (req, res) {
             res.redirect("/");
         });
-
         app.use(handler.errorHandler);
-
     };
 })();

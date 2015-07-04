@@ -4,7 +4,7 @@ var config = {
     domain             : ".ngnice.local",
     baseUrl            : "http://127.0.0.1:8888",
     mongoServer        : "mongodb://127.0.0.1/ngnice",
-    cookieSecret      : "WOJIUSHINIUBI123456",
+    cookieSecret       : "WOJIUSHINIUBI123456",
     errorHandlerOptions: {
         dumpExceptions: true,
         showStack     : true
@@ -17,6 +17,12 @@ var config = {
             clientSecret    : "3af5d86cd7e6309bdc2076c89fd46f97",
             callbackURL     : "http://local.ngnice.com:8888/auth/weibo/callback"
         }
+    },
+    logger             : {
+        dirname : "logs",
+        filename: "",
+        level   : "info",
+        maxsize : 1024 * 1024 * 10
     }
 };
 

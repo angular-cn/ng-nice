@@ -11,6 +11,7 @@
         app = express(),
         route = require("./server/route"),
         config = require("./server/config"),
+        kits = require("./server/kits"),
         appPackage = require("./package.json"),
         localsApp = {
             title  : config.title,
@@ -44,10 +45,20 @@
         return req.context ? req.context.operationId : "null";
     });
     if ('development' === config.env) {
-        app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
+        app.use(morgan({
+            format: ':method :url :status :remote-addr [:date][:response-time ms] [:operationId]',
+            stream: {
+                write: kits.logger.info
+            }
+        }));
         localsApp.siteScripts = config.siteScripts;
     } else {
-        app.use(morgan(':method :url :status :remote-addr [:date][:response-time ms] [:operationId]'));
+        app.use(morgan({
+            format: ':method :url :status :remote-addr [:date][:response-time ms] [:operationId]',
+            stream: {
+                write: kits.logger.info
+            }
+        }));
     }
 
     app.locals.app = localsApp;
@@ -57,12 +68,12 @@
 
     //create server
     app.listen(config.port, function () {
-        console.log('ng-nice server listening on port ' + config.port + " in env " + config.env);
+        kits.logger.info('ng-nice server listening on port ' + config.port + " in env " + config.env);
     });
 
     if (config.env === 'production') {
         process.on("uncaughtException", function (err) {
-            console.log("process uncaughtException:" + err);
+            kits.logger.info("process uncaughtException:" + err);
         });
     }
 })();

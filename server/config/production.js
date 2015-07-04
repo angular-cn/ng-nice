@@ -17,6 +17,12 @@ var config = {
             clientSecret    : "3af5d86cd7e6309bdc2076c89fd46f97",
             callbackURL     : "http://local.ngnice.com:8888/auth/weibo/callback"
         }
+    },
+    logger             : {
+        dirname : "/home/web-log/node-js",
+        filename: "log-info.log",
+        level   : "info",
+        maxsize : 1024 * 1024 * 10
     }
 };
 var envConfig = require("./production.confidential.js");
