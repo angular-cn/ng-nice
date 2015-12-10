@@ -50,15 +50,6 @@
   }
 }
 
-a, a:hover, a:active {
-  text-decoration : none;
-  color           : #555;
-}
-
-a:hover {
-  color : #000000;
-}
-
 .markdown {
   table {
     .table();
@@ -81,14 +72,24 @@ a:hover {
   }
 }
 
-.btn {
-  min-width : 80px;
+a, a:hover, a:active {
+  text-decoration : none;
+  color           : #555;
 }
 
-.btn-lg {
-  border-radius : 3px;
+a:hover {
+  color : #000000;
 }
 
+#wrap{
+  .btn {
+    min-width : 80px;
+  }
+
+  .btn-lg {
+    border-radius : 3px;
+  }
+}
 .navbar {
   .container {
     padding-right : 10px;

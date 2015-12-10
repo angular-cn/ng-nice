@@ -5891,15 +5891,6 @@ button.close {
   width: 80px;
   height: 80px;
 }
-a,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: #555;
-}
-a:hover {
-  color: #000000;
-}
 .markdown {
   font-size: 16px;
   word-break: break-word;
@@ -5963,11 +5954,19 @@ a:hover {
 .markdown img {
   max-width: 100%;
 }
-.btn {
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #555;
+}
+a:hover {
+  color: #000000;
+}
+#wrap .btn {
   min-width: 80px;
 }
-.btn-lg,
-.btn-group-lg > .btn {
+#wrap .btn-lg {
   border-radius: 3px;
 }
 .navbar .container {
