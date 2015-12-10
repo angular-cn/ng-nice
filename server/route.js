@@ -69,12 +69,8 @@
         app.get('/posts/:post_id', controller.post.detail);
         app.get('/posts/:post_id/edit', auth.check(), controller.post.edit);
 
-        // Showcase
-        // css return 404
-        app.get(/\/showcase\/([^?]+).css$/, function (req, res) {
-            res.status(404).end();
-        });
-        app.get('/showcase/*', controller.home.showcase);
+        //showcase
+        app.get('/showcase*', controller.home.showcase);
 
         app.get('/*', function (req, res) {
             res.redirect("/");
