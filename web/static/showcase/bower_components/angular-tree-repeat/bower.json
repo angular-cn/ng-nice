@@ -1,9 +1,0 @@
-{
-    "name": "angular-tree-repeat",
-    "version": "0.0.1",
-    "author": "Paul Thomas <paul@stackfull.com>",
-    "main": "./angular-tree-repeat.min.js",
-    "dependencies": {
-        "angular": ">= 1.2.0"
-    }
-}

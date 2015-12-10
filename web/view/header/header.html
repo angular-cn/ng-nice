@@ -30,8 +30,11 @@
                         <li><a href="http://code.angularjs.org/">Download</a></li>
                     </ul>
                 </li>
-                <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>"><a href="<%=locals.app.baseUrl%>/showcase">展示案例</a>
-                <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" ><a href="/about">关于</a>
+                <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>">
+                    <a target="_blank" href="<%=locals.app.baseUrl%>/showcase">展示案例</a>
+                </li>
+                <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" >
+                    <a href="/about">关于</a>
                 </li>
                 <%if(locals.isAuthorized){%>
                 <li class="<%=locals.current_nav == 'my_posts' ? 'active' : ''%>">
