@@ -19,7 +19,7 @@ var config = {
         }
     },
     logger             : {
-        dirname : "/home/web-log/node-js",
+        dirname : "/home/www-log/node-js",
         filename: "log-info.log",
         level   : "info",
         maxsize : 1024 * 1024 * 10

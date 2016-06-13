@@ -23,8 +23,8 @@
     app.use(bodyParser());
     app.use(methodOverride());
     app.use(cookieParser(config.cookieSecret));
-    app.set('views', __dirname + '/web/view');
-    app.use(express.static(__dirname + '/web/static'));// {maxAge: 31557600000}
+    app.set('views', __dirname + '/www/view');
+    app.use(express.static(__dirname + '/www/static'));// {maxAge: 31557600000}
     app.set('view engine', 'html');
     app.engine('html', require('ejs').renderFile);
     app.use(expressLayout);

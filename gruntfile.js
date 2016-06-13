@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     var config = require("./core/config");
     var siteScripts = [];
     for (var i = 0; i < config.siteScripts.length; i++) {
-        siteScripts.push("web/static/" + config.siteScripts[i]);
+        siteScripts.push("www/static/" + config.siteScripts[i]);
     }
     // Project configuration.
     grunt.initConfig({
@@ -14,7 +14,7 @@ module.exports = function (grunt) {
                 //['res/lib/jquery/1.11.0/jquery.js','res/lib/bootstrap/3.1.1/js/bootstrap.js', 'res/js/main.js'],
                 // 这里的site_scripts是从配置文件读取的，因为layout也需要读取site_scripts，如果仅仅是这个地方使用到，可以按照上面的方式写死
                 src : siteScripts,
-                dest: 'web/static/js/<%= pkg.name %>.js'
+                dest: 'www/static/js/<%= pkg.name %>.js'
             }
         },
         uglify: {
@@ -22,14 +22,14 @@ module.exports = function (grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build  : {
-                src : 'web/static/js/<%= pkg.name %>.js',
-                dest: 'web/static/js/<%= pkg.name %>.min.js'
+                src : 'www/static/js/<%= pkg.name %>.js',
+                dest: 'www/static/js/<%= pkg.name %>.min.js'
             }
         },
         less       : {
             compile: {
                 files: {
-                    "web/static/css/css.css"      : "web/static/css/css.less"
+                    "web/static/css/css.css"      : "www/static/css/css.less"
                 }
             }
         },
