@@ -19,9 +19,12 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">
-                        <i class="fa fa-book"></i> 开发 <b class="caret"></b>
+                        <i class="fa fa-book"></i> Angular 1.x 文档 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
+                        <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>">
+                            <a target="_blank" href="/showcase">展示案例</a>
+                        </li>
                         <li><a href="<%=locals.app.baseUrl%>/docs/tutorial">Tutorial</a></li>
                         <li><a href="<%=locals.app.baseUrl%>/docs/guide">Developer Guide</a></li>
                         <li><a href="<%=locals.app.baseUrl%>/docs/api">API Reference</a></li>
@@ -30,8 +33,8 @@
                         <li><a href="http://code.angularjs.org/">Download</a></li>
                     </ul>
                 </li>
-                <li class="<%=locals.current_nav == 'showcase' ? 'active' : ''%>">
-                    <a target="_blank" href="/showcase">展示案例</a>
+                <li>
+                    <a target="_blank" href="https://angular.cn/">Angular 2 中文文档</a>
                 </li>
                 <li class="<%=locals.current_nav == 'about' ? 'active' : ''%>" >
                     <a href="/about">关于</a>

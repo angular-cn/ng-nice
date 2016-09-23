@@ -1,7 +1,7 @@
 /*global grunt*/
 module.exports = function (grunt) {
 
-    var config = require("./core/config");
+    var config = require("./server/config");
     var siteScripts = [];
     for (var i = 0; i < config.siteScripts.length; i++) {
         siteScripts.push("web/static/" + config.siteScripts[i]);
