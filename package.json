@@ -12,7 +12,7 @@
     "body-parser": "~1.0.2",
     "compression": "~1.0.7",
     "cookie-parser": "~1.0.1",
-    "ejs": "~0.8.5",
+    "ejs": "2.5.7",
     "express": "~4.8.2",
     "express3-ejs-layout": "~0.0.1",
     "formidable": "~1.0.14",
